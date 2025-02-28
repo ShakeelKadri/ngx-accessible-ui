@@ -51,7 +51,7 @@ Now, you can use them in your HTML as described below.
 </div>
 ```
 
-For detailed documentation, refer to full documentatin below.  
+For detailed documentation, refer to [Full Documentation](#full-documentation).  
 
 ---
 
