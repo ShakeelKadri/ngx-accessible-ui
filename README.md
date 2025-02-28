@@ -77,6 +77,8 @@ For detailed documentation, refer to [Full Documentation](#full-documentation).
 1 [Angular Directive `accessibleNavigation`](#angular-directive-accessibleNavigation)
 2 [Angular Directive `accessibleMenu`](#angular-directive-accessibleMenu)
 
+[View on NPM](https://www.npmjs.com/package/ngx-accessible-ui)
+
 <details>
 <summary> <strong> accessibleNavigation </strong> </summary>
 
