@@ -1,7 +1,7 @@
 # Accessible Navigation & Menu Directives for Angular  
 
 # Overview  
-Two powerful Angular directives to convert any website fully accessible with `keyboard`, touch and mouse with ease:  
+Two powerful Angular directives to create or convert any website fully accessible with `keyboard`, touch and mouse with ease:  
 
 1. **`accessibleNavigation`** – Create or Converts any webpage accessible with keyboard across sections of a web page.  
 2. **`accessibleMenu`** – Create or Converts any menu a fully accessible keyboard-navigable menu.  
@@ -77,6 +77,8 @@ For detailed documentation, refer to [Full Documentation](#full-documentation).
 1 [Angular Directive `accessibleNavigation`](#angular-directive-accessibleNavigation)
 2 [Angular Directive `accessibleMenu`](#angular-directive-accessibleMenu)
 
+<details>
+<summary> <strong> accessibleNavigation </strong> </summary>
 # Angular Directive accessibleNavigation
 
 The `accessibleNavigation` directive, combined with the `accessibleMenu` directive, enables seamless navigation using all input methods and all directional navigation in any Angular website adhering to WCAG 2.1 Level AA standards and the European Accessibility Act 2025. The directive provides advanced keyboard navigation and focus management between different sections of pages to enhance accessibility in web applications. It dynamically manages focusable elements within a container or section and integrates modern web APIs like `IntersectionObserver` and `MutationObserver` to adapt to DOM element changes and element visibility.
@@ -203,10 +205,12 @@ Define keys to open a navigation item with click (default: `['']`). Use `[navOpe
 - Uses Angular lifecycle hooks (`AfterViewInit`, `OnDestroy`) to manage observers.
 - Available as `accessibleNavigation` via `exportAs` for dynamic focus handling.
 
+</details>
+
 <details>
-<summary> 
+<summary> <strong> accessibleMenu </strong> </summary>
+
 # Angular Directive accessibleMenu 
-</summary>
 
 ## Overview
 The `accessibleMenu` directive is designed to create or convert any existing menu into fully accessible menus and submenus that comply with **WCAG 2.1 Level AA** and the **European Accessibility Act 2025**. It ensures seamless navigation via keyboard, mouse, and touch while providing advanced features like dynamic ARIA attributes, multi-level menu support, and customizable search functionality.
