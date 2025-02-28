@@ -77,7 +77,8 @@ For detailed documentation, refer to [Full Documentation](#full-documentation).
 1 [Angular Directive `accessibleNavigation`](#angular-directive-accessibleNavigation)
 2 [Angular Directive `accessibleMenu`](#angular-directive-accessibleMenu)
 
-# Angular Directive accessibleNavigation
+<details>
+<summary># Angular Directive accessibleNavigation</summary>
 
 The `accessibleNavigation` directive, combined with the `accessibleMenu` directive, enables seamless navigation using all input methods and all directional navigation in any Angular website adhering to WCAG 2.1 Level AA standards and the European Accessibility Act 2025. The directive provides advanced keyboard navigation and focus management between different sections of pages to enhance accessibility in web applications. It dynamically manages focusable elements within a container or section and integrates modern web APIs like `IntersectionObserver` and `MutationObserver` to adapt to DOM element changes and element visibility.
 
@@ -202,9 +203,9 @@ Define keys to open a navigation item with click (default: `['']`). Use `[navOpe
 ## Notes
 - Uses Angular lifecycle hooks (`AfterViewInit`, `OnDestroy`) to manage observers.
 - Available as `accessibleNavigation` via `exportAs` for dynamic focus handling.
+</details>
 
-
-### `accessibleMenu` Directive  
+<details>
 # Angular Directive accessibleMenu
 
 ## Overview

@@ -203,9 +203,10 @@ Define keys to open a navigation item with click (default: `['']`). Use `[navOpe
 - Uses Angular lifecycle hooks (`AfterViewInit`, `OnDestroy`) to manage observers.
 - Available as `accessibleNavigation` via `exportAs` for dynamic focus handling.
 
-
-### `accessibleMenu` Directive  
-# Angular Directive accessibleMenu
+<details>
+<summary> 
+# Angular Directive accessibleMenu 
+</summary>
 
 ## Overview
 The `accessibleMenu` directive is designed to create or convert any existing menu into fully accessible menus and submenus that comply with **WCAG 2.1 Level AA** and the **European Accessibility Act 2025**. It ensures seamless navigation via keyboard, mouse, and touch while providing advanced features like dynamic ARIA attributes, multi-level menu support, and customizable search functionality.
@@ -357,6 +358,8 @@ Keep a submenu open using the `data-keep-submenu-open` attribute:
 - Works seamlessly with custom templates and dynamic DOM changes.
 - Available as `accessibleMenu` via `exportAs` for dynamic focus handling.
 ---
+
+</details>
 
 # Contributing  
 
