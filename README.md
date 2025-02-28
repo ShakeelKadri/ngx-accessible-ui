@@ -1,4 +1,4 @@
-# Accessible Navigation & Menu Directives for Angular  
+# **Accessible Navigation & Menu Directives for Angular**  
 
 # Overview  
 Two powerful Angular directives to create or convert any website fully accessible with `keyboard`, touch and mouse with ease:  
@@ -79,6 +79,7 @@ For detailed documentation, refer to [Full Documentation](#full-documentation).
 
 <details>
 <summary> <strong> accessibleNavigation </strong> </summary>
+
 # Angular Directive accessibleNavigation
 
 The `accessibleNavigation` directive, combined with the `accessibleMenu` directive, enables seamless navigation using all input methods and all directional navigation in any Angular website adhering to WCAG 2.1 Level AA standards and the European Accessibility Act 2025. The directive provides advanced keyboard navigation and focus management between different sections of pages to enhance accessibility in web applications. It dynamically manages focusable elements within a container or section and integrates modern web APIs like `IntersectionObserver` and `MutationObserver` to adapt to DOM element changes and element visibility.
