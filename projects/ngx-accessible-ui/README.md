@@ -1,6 +1,6 @@
 # Accessible Navigation & Menu Directives for Angular  
 
-## Overview  
+# Overview  
 Two powerful Angular directives to convert any website fully accessible with `keyboard`, touch and mouse with ease:  
 
 1. **`accessibleNavigation`** – Create or Converts any webpage accessible with keyboard across sections of a web page.  
@@ -8,7 +8,7 @@ Two powerful Angular directives to convert any website fully accessible with `ke
 
 Both directives comply with **WCAG 2.1 Level AA** and the **European Accessibility Act 2025**, ensuring a highly inclusive web experience.
 
-## Installation  
+# Installation  
 To install the directives in your Angular project, use:  
 
 ```sh
@@ -21,7 +21,7 @@ or
 yarn add ngx-accessible-ui
 ```
 
-## Usage  
+# Usage  
 Import the directives into your Angular module:  
 
 ```typescript
@@ -37,7 +37,7 @@ Now, you can use them in your HTML as described below.
 
 ---
 
-## `accessibleNavigation` Directive  
+# `accessibleNavigation` Directive  
 
 ```html
 <div id="header" accessibleNavigation [navMap]="{ page: 1, section: 1 }">
@@ -55,7 +55,7 @@ For detailed documentation, refer to full documentatin below.
 
 ---
 
-## `accessibleMenu` Directive  
+# `accessibleMenu` Directive  
 
 ```html
 <button accessibleMenu [mainMenu]="true">Open Main Menu</button>
@@ -69,94 +69,15 @@ For detailed documentation, refer to full documentatin below.
 </ul>
 ```
 
-For detailed documentation, refer to full documentatin below.  
+For detailed documentation, refer to [Full Documentation](#full-documentation).  
 
 ---
 
-## Full Documentation  
+# Full Documentation 
+1 [Angular Directive `accessibleNavigation`](#angular-directive-accessibleNavigation)
+2 [Angular Directive `accessibleMenu`](#angular-directive-accessibleMenu)
 
-### `accessibleNavigation` Directive  
-
-# Accessible Navigation & Menu Directives for Angular  
-
-## Overview  
-Two powerful Angular directives to convert any website fully accessible with `keyboard`, touch and mouse with ease:  
-
-1. **`accessibleNavigation`** – Create or Converts any webpage accessible with keyboard across sections of a web page.  
-2. **`accessibleMenu`** – Create or Converts any menu a fully accessible keyboard-navigable menu.  
-
-Both directives comply with **WCAG 2.1 Level AA** and the **European Accessibility Act 2025**, ensuring a highly inclusive web experience.
-
-## Installation  
-To install the directives in your Angular project, use:  
-
-```sh
-npm i ngx-accessible-ui
-```
-
-or  
-
-```sh
-yarn add ngx-accessible-ui
-```
-
-## Usage  
-Import the directives into your Angular module:  
-
-```typescript
-import { NgxAccessibleUiModule } from 'ngx-accessible-ui';
-
-@NgModule({
-  imports: [NgxAccessibleUiModule],
-})
-export class AppModule {}
-```
-
-Now, you can use them in your HTML as described below.  
-
----
-
-## `accessibleNavigation` Directive  
-
-```html
-<div id="header" accessibleNavigation [navMap]="{ page: 1, section: 1 }">
-  <button data-item="navigationitem">Item 1</button>
-  <button data-item="navigationitem">Item 2</button>
-</div>
-
-<div id="main" accessibleNavigation [navMap]="{ page: 1, section: 2 }">
-  <button data-item="navigationitem">Item 1</button>
-  <button data-item="navigationitem">Item 2</button>
-</div>
-```
-
-For detailed documentation, refer to full documentatin below.  
-
----
-
-## `accessibleMenu` Directive  
-
-```html
-<button accessibleMenu [mainMenu]="true">Open Main Menu</button>
-<ul>
-  <li role="menuitem">Item 1</li>
-  <button role="menuitem" accessibleMenu>Item 2 Submenu Level 1</button>
-  <ul>
-    <li role="menuitem">Sub-item Level 1.1</li>
-    <li role="menuitem">Sub-item Level 1.2</li>
-  </ul>
-</ul>
-```
-
-For detailed documentation, refer to full documentatin below.  
-
----
-
-## Full Documentation  
-
-### `accessibleNavigation` Directive  
-
-# Angular Directive: `accessibleNavigation`
+# Angular Directive accessibleNavigation
 
 The `accessibleNavigation` directive, combined with the `accessibleMenu` directive, enables seamless navigation using all input methods and all directional navigation in any Angular website adhering to WCAG 2.1 Level AA standards and the European Accessibility Act 2025. The directive provides advanced keyboard navigation and focus management between different sections of pages to enhance accessibility in web applications. It dynamically manages focusable elements within a container or section and integrates modern web APIs like `IntersectionObserver` and `MutationObserver` to adapt to DOM element changes and element visibility.
 
@@ -284,7 +205,7 @@ Define keys to open a navigation item with click (default: `['']`). Use `[navOpe
 
 
 ### `accessibleMenu` Directive  
-# Angular Directive: `accessibleMenu`
+# Angular Directive accessibleMenu
 
 ## Overview
 The `accessibleMenu` directive is designed to create or convert any existing menu into fully accessible menus and submenus that comply with **WCAG 2.1 Level AA** and the **European Accessibility Act 2025**. It ensures seamless navigation via keyboard, mouse, and touch while providing advanced features like dynamic ARIA attributes, multi-level menu support, and customizable search functionality.
@@ -437,7 +358,7 @@ Keep a submenu open using the `data-keep-submenu-open` attribute:
 - Available as `accessibleMenu` via `exportAs` for dynamic focus handling.
 ---
 
-## Contributing  
+# Contributing  
 
 We welcome contributions! If you find an issue or want to improve this package:  
 
@@ -446,7 +367,7 @@ We welcome contributions! If you find an issue or want to improve this package:
 3. Commit your changes  
 4. Open a pull request  
 
-## License  
+# License  
 This project is licensed under the MIT License.  
 
 ---
