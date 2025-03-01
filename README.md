@@ -35,6 +35,9 @@ export class AppModule {}
 
 Now, you can use them in your HTML as described below.  
 
+## For Angular 19 live Demo  
+[![View on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/ngx-accessible-ui-accessible-menu-basic?file=src%2Fmain.ts)
+
 ---
 
 # `accessibleNavigation` Directive  
@@ -68,6 +71,9 @@ For detailed documentation, refer to [Full Documentation](#full-documentation).
   </ul>
 </ul>
 ```
+
+## Live Demo  
+[![View on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/ngx-accessible-ui-accessible-menu-basic?file=src%2Fmain.ts)
 
 For detailed documentation, refer to [Full Documentation](#full-documentation).  
 
