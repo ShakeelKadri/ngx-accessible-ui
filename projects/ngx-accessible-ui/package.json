@@ -1,0 +1,31 @@
+{
+  "name": "ngx-accessible-ui",
+  "version": "1.0.5",
+  "description": "A set of Angular directives for accessible navigation and menus",
+  "author": "Shakee Kadri",
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/core": ">=9.0.0",
+    "@angular/common": ">=9.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },  
+  "keywords": [
+    "angular",
+    "menu",
+    "accessibility",
+    "keyboard-navigation",
+    "WCAG",
+    "directive",
+    "European Accessibility Act 2025"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShakeelKadri/ngx-accessible-ui.git"
+  },
+  "homepage": "https://github.com/ShakeelKadri/ngx-accessible-ui",
+  "bugs": {
+    "url": "https://github.com/ShakeelKadri/ngx-accessible-ui/issues"
+  }  
+}
