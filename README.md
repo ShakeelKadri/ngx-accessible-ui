@@ -54,6 +54,9 @@ Now, you can use them in your HTML as described below.
 </div>
 ```
 
+## For Angular 19 live Demo  
+[![View on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/ngx-accessible-ui-accessible-navigation-basic?file=src%2Fmain.ts)
+
 For detailed documentation, refer to [Full Documentation](#full-documentation).  
 
 ---
@@ -97,12 +100,11 @@ The `accessibleNavigation` directive, combined with the `accessibleMenu` directi
 ### Advanced Keyboard Navigation & Focus Management
 - Default navigation: Tab, Shift+Tab for sections like header, footer, main, aside, etc.; Arrow keys for elements in sections.
 - Supports all directional navigation, irrespective of grid, table, float, or any other structure.
-- Automatically manages focus between navigable pages (i.e., components or child components) when they open or close.
+- Automatically manages focus between navigable pages (i.e., components or child components) when they open or close and remembers the last navigated section on every page and sets focus to the last active element in that section.
 
 ### Dynamic Navigation Map
 - Maintains a static navigation map that tracks page and section information.
 - Automatically updates the navigation map as items are added, removed, or modified.
-- Remembers the last navigated section on every page and sets focus to the last active element in that section.
 
 ### Observer Integration for Responsive Updates
 - Utilizes **IntersectionObserver** to detect when a page becomes visible and adjust focus accordingly.
