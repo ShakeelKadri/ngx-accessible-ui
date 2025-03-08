@@ -35,11 +35,13 @@ export class AppModule {}
 
 Now, you can use them in your HTML as described below.  
 
-Learn with [accessibleMenu Basic Live Demo For Angular 19](#accessibleMenu-Basic-Live-Demo-For-Angular-19) 
+Learn with:
 
-Learn with [accessibleMenu Advance Live Demo For Angular 19](#accessibleMenu-Advance-Live-Demo-For-Angular-19)  
+[accessibleMenu Basic Live Demo For Angular 19](#accessibleMenu-Basic-Live-Demo-For-Angular-19) 
 
-Learn with [accessibleNavigation Basic Live Demo For Angular 19](#accessibleNavigation-Basic-Live-Demo-For-Angular-19) 
+[accessibleMenu Advance Live Demo For Angular 19](#accessibleMenu-Advance-Live-Demo-For-Angular-19)  
+
+[accessibleNavigation Basic Live Demo For Angular 19](#accessibleNavigation-Basic-Live-Demo-For-Angular-19) 
 
 ---
 
