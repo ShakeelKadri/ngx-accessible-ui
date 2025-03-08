@@ -35,9 +35,9 @@ export class AppModule {}
 
 Now, you can use them in your HTML as described below.  
 
-## For Angular 19 live Demo  
-[![View on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/ngx-accessible-ui-accessible-menu-basic?file=src%2Fmain.ts)
+Learn with basic live demo [accessibleMenu Basic Live Demo For Angular 19](#accessibleMenu-Basic-Live-Demo-For-Angular-19) 
 
+Learn with advance live demo [accessibleMenu Advance Live Demo For Angular 19](#accessibleMenu-Advance-Live-Demo-For-Angular-19)  
 ---
 
 # `accessibleNavigation` Directive  
@@ -54,7 +54,7 @@ Now, you can use them in your HTML as described below.
 </div>
 ```
 
-## For Angular 19 live Demo  
+## accessibleNavigation Basic Live Demo For Angular 19    
 [![View on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/ngx-accessible-ui-accessible-navigation-basic?file=src%2Fmain.ts)
 
 For detailed documentation, refer to [Full Documentation](#full-documentation).  
@@ -75,10 +75,14 @@ For detailed documentation, refer to [Full Documentation](#full-documentation).
 </ul>
 ```
 
-## Live Demo  
+## accessibleMenu Basic Live Demo For Angular 19 
 [![View on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/ngx-accessible-ui-accessible-menu-basic?file=src%2Fmain.ts)
 
+## accessibleMenu Advance Live Demo For Angular 19  
+[![View on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/ngx-accessible-ui-accessible-menu-advance?file=src%2FfoodMenu.html)
+
 For detailed documentation, refer to [Full Documentation](#full-documentation).  
+
 
 ---
 
@@ -287,7 +291,7 @@ Enable navigation in all directions using arrow keys:
 ```
 
 ### 2. Advanced Two-Level Search
-Enable search functionality using an input field:
+Enable search functionality using an input field: Menu-wise and item-wise search using the same input field. Example: Searching "Italian" shows all items under the "Italian" menu and any matching items like "Italian Dressing" or "Italian Soda" across other menus.
 ```html
 <input type="text" role="menuitem" data-use-search="true" placeholder="Search...">
 ```
