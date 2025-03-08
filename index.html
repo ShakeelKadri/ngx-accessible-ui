@@ -3,14 +3,259 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ngx-accessible-ui</title>
+    <title>ngx-accessible-ui - Accessible Angular Directives</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <style>
+        .code-container {
+            position: relative;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .code-container:hover .copy-btn {
+            opacity: 1;
+        }
+    </style>
 </head>
-<body>
-    <h1>ngx-accessible-ui</h1>
-    <p>Fully accessible Angular directives for menus and navigation.</p>
-    <h2>Installation</h2>
-    <pre><code>npm install ngx-accessible-ui</code></pre>
-    <h2>Usage</h2>
-    <pre><code>&lt;nav accessibleMenu&gt;Your menu here&lt;/nav&gt;</code></pre>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-gray-900 text-white shadow-lg fixed w-full top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#" class="text-xl font-bold">ngx-accessible-ui</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#installation" class="hover:text-blue-400 transition">Installation</a>
+                    <a href="#usage" class="hover:text-blue-400 transition">Usage</a>
+                    <a href="#directives" class="hover:text-blue-400 transition">Directives</a>
+                    <a href="#demos" class="hover:text-blue-400 transition">Demos</a>
+                    <a href="https://npmjs.com/package/ngx-accessible-ui" class="hover:text-blue-400 transition">NPM</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-24 pb-12 bg-gradient-to-r from-gray-900 to-blue-900 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Accessible Angular Directives</h1>
+            <p class="text-xl mb-8 opacity-90">Create fully accessible navigation and menus with ease</p>
+            <div class="space-x-4">
+                <a href="#installation" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-medium transition">Get Started</a>
+                <a href="#demos" class="border border-white hover:border-blue-400 px-6 py-3 rounded-lg font-medium transition">View Demos</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 pt-12 pb-24">
+        <!-- Installation -->
+        <section id="installation" class="mb-16">
+            <h2 class="text-3xl font-bold mb-6">Installation</h2>
+            <div class="code-container">
+                <pre class="rounded-lg p-4 bg-gray-800 text-gray-100 mb-6">
+                    <button class="copy-btn bg-gray-700 text-white px-3 py-1 rounded-md text-sm">Copy</button>
+                    <code class="language-bash">
+npm install ngx-accessible-ui
+# or
+yarn add ngx-accessible-ui
+                    </code>
+                </pre>
+            </div>
+        </section>
+
+        <!-- Usage -->
+        <section id="usage" class="mb-16">
+            <h2 class="text-3xl font-bold mb-6">Usage</h2>
+            <div class="code-container">
+                <pre class="rounded-lg p-4 bg-gray-800 text-gray-100 mb-6">
+                    <button class="copy-btn bg-gray-700 text-white px-3 py-1 rounded-md text-sm">Copy</button>
+                    <code class="language-typescript">
+import { NgxAccessibleUiModule } from 'ngx-accessible-ui';
+
+@NgModule({
+  imports: [NgxAccessibleUiModule],
+})
+export class AppModule {}
+                    </code>
+                </pre>
+            </div>
+        </section>
+
+        <!-- Directives -->
+        <section id="directives" class="mb-16">
+            <h2 class="text-3xl font-bold mb-8">Directives</h2>
+            
+            <!-- accessibleNavigation -->
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <h3 class="text-2xl font-semibold mb-4">accessibleNavigation</h3>
+                <p class="mb-4 text-gray-600">Keyboard-accessible navigation across page sections</p>
+                <div class="code-container">
+                    <pre class="rounded-lg p-4 bg-gray-800 text-gray-100 mb-4">
+                        <button class="copy-btn bg-gray-700 text-white px-3 py-1 rounded-md text-sm">Copy</button>
+                        <code class="language-html">
+&lt;div id="header" accessibleNavigation [navMap]="{ page: 1, section: 1 }"&gt;
+  &lt;button data-item="navigationitem"&gt;Item 1&lt;/button&gt;
+  &lt;button data-item="navigationitem"&gt;Item 2&lt;/button&gt;
+&lt;/div&gt;
+&lt;div id="main" accessibleNavigation [navMap]="{ page: 1, section: 2 }"&gt;
+  &lt;button data-item="navigationitem"&gt;Item 1&lt;/button&gt;
+  &lt;button data-item="navigationitem"&gt;Item 2&lt;/button&gt;
+&lt;/div&gt;
+                        </code>
+                    </pre>
+                </div>
+                <a href="https://stackblitz.com/edit/ngx-accessible-ui-accessible-navigation-basic" class="text-blue-600 hover:text-blue-700">View Demo →</a>
+            </div>
+
+            <!-- accessibleMenu -->
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <h3 class="text-2xl font-semibold mb-4">accessibleMenu</h3>
+                <p class="mb-4 text-gray-600">Fully accessible keyboard-navigable menus</p>
+                <div class="code-container">
+                    <pre class="rounded-lg p-4 bg-gray-800 text-gray-100 mb-4">
+                        <button class="copy-btn bg-gray-700 text-white px-3 py-1 rounded-md text-sm">Copy</button>
+                        <code class="language-html">
+                            &lt;button accessibleMenu [mainMenu]="true"&gt;
+                            ☰ Main Menu
+                          &lt;/button&gt;
+                          
+                          &lt;ul&gt;
+                            &lt;li role="menuitem"&gt;Home&lt;/li&gt;
+                            
+                            &lt;button role="menuitem" accessibleMenu&gt;
+                              Services ▸
+                            &lt;/button&gt;
+                            &lt;ul&gt;
+                              &lt;li role="menuitem"&gt;Web Development&lt;/li&gt;
+                              &lt;li role="menuitem"&gt;Accessibility Audit&lt;/li&gt;
+                            &lt;/ul&gt;
+                          
+                            &lt;li role="menuitem"&gt;Contact&lt;/li&gt;
+                          &lt;/ul&gt;
+                        </code>
+                    </pre>
+                </div>
+                <a href="https://stackblitz.com/edit/ngx-accessible-ui-accessible-menu-basic" class="text-blue-600 hover:text-blue-700">View Demo →</a>
+            </div>
+        </section>
+
+    <!-- Demos -->
+    <section id="demos" class="mb-16">
+        <h2 class="text-3xl font-bold mb-8">Live Demos</h2>
+
+        <!-- accessibleNavigation Demos -->
+        <div class="mb-12">
+            <h3 class="text-2xl font-semibold mb-6 text-gray-800">accessibleNavigation Demos</h3>
+            <div class="grid md:grid-cols-1 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h4 class="text-lg font-medium mb-4">Basic Navigation Demo</h4>
+                    <a href="ACCESSIBLE_NAVIGATION_BASIC_DEMO_URL" 
+                       class="block bg-gray-100 hover:bg-gray-200 p-4 rounded-lg transition">
+                        <img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" 
+                             alt="StackBlitz" 
+                             class="h-8 mx-auto">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- accessibleMenu Demos -->
+        <div class="mb-12">
+            <h3 class="text-2xl font-semibold mb-6 text-gray-800">accessibleMenu Demos</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Basic Demo -->
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h4 class="text-lg font-medium mb-4">Basic Menu Demo</h4>
+                    <a href="ACCESSIBLE_MENU_BASIC_DEMO_URL" 
+                       class="block bg-gray-100 hover:bg-gray-200 p-4 rounded-lg transition">
+                        <img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" 
+                             alt="StackBlitz" 
+                             class="h-8 mx-auto">
+                    </a>
+                </div>
+
+                <!-- Advanced Demo -->
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h4 class="text-lg font-medium mb-4">Advanced Menu Demo</h4>
+                    <a href="ACCESSIBLE_MENU_ADVANCED_DEMO_URL" 
+                       class="block bg-gray-100 hover:bg-gray-200 p-4 rounded-lg transition">
+                        <img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" 
+                             alt="StackBlitz" 
+                             class="h-8 mx-auto">
+                    </a>
+                </div>
+
+                <!-- Numpad Demo -->
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h4 class="text-lg font-medium mb-4">Numpad Menu Demo</h4>
+                    <a href="ACCESSIBLE_MENU_NUMPAD_DEMO_URL" 
+                       class="block bg-gray-100 hover:bg-gray-200 p-4 rounded-lg transition">
+                        <img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" 
+                             alt="StackBlitz" 
+                             class="h-8 mx-auto">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Documentation -->
+        <section id="docs" class="mb-16">
+            <h2 class="text-3xl font-bold mb-8">Documentation</h2>
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <p class="mb-4">Full documentation available on:</p>
+                <a href="https://npmjs.com/package/ngx-accessible-ui" class="text-blue-600 hover:text-blue-700">NPM Package Documentation →</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <p class="mb-4">Maintained by <a href="https://github.com/shakeelkadir" class="text-blue-400 hover:text-blue-300">Shakeel Kadri</a></p>
+                <p class="text-gray-400">Licensed under MIT License</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Copy button functionality
+            document.querySelectorAll('.copy-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const code = e.target.parentElement.querySelector('code').innerText;
+                    navigator.clipboard.writeText(code.trim());
+                    
+                    // Visual feedback
+                    const originalText = button.innerText;
+                    button.innerText = 'Copied!';
+                    button.classList.add('bg-green-600');
+                    setTimeout(() => {
+                        button.innerText = originalText;
+                        button.classList.remove('bg-green-600');
+                    }, 2000);
+                });
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            hljs.highlightAll();
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ngx-accessible-ui</title>
+    <style>
+        /* Add necessary CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #333;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><strong>Accessible Navigation &amp; Menu Directives for Angular</strong></h1></div>
+        <div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto">Overview</h1></div>
+        <p dir="auto">Two powerful Angular directives to create or convert any website fully accessible with <code>keyboard</code>, touch and mouse with ease:</p>
+        <ol dir="auto">
+        <li><strong><code>accessibleNavigation</code></strong> – Create or Converts any webpage accessible with keyboard across sections of a web page.</li>
+        <li><strong><code>accessibleMenu</code></strong> – Create or Converts any menu a fully accessible keyboard-navigable menu.</li>
+        </ol>
+        <p dir="auto">Both directives comply with <strong>WCAG 2.1 Level AA</strong> and the <strong>European Accessibility Act 2025</strong>, ensuring a highly inclusive web experience.</p>
+        <div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto">Installation</h1></div>
+        <p dir="auto">To install the directives in your Angular project, use:</p>
+        <div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>npm i ngx-accessible-ui</pre><div class="zeroclipboard-container">
+            <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="npm i ngx-accessible-ui" tabindex="0" role="button">
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+        </svg>
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+            <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+        </svg>
+            </clipboard-copy>
+          </div></div>
+        <p dir="auto">or</p>
+        <div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>yarn add ngx-accessible-ui</pre><div class="zeroclipboard-container">
+            <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="yarn add ngx-accessible-ui" tabindex="0" role="button">
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+        </svg>
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+            <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+        </svg>
+            </clipboard-copy>
+          </div></div>
+        <div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto">Usage</h1></div>
+        <p dir="auto">Import the directives into your Angular module:</p>
+        <div class="highlight highlight-source-ts notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-v">NgxAccessibleUiModule</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">'ngx-accessible-ui'</span><span class="pl-kos">;</span>
+        
+        @<span class="pl-v">NgModule</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
+          <span class="pl-c1">imports</span>: <span class="pl-kos">[</span><span class="pl-v">NgxAccessibleUiModule</span><span class="pl-kos">]</span><span class="pl-kos">,</span>
+        <span class="pl-kos">}</span><span class="pl-kos">)</span>
+        <span class="pl-k">export</span> <span class="pl-k">class</span> <span class="pl-smi">AppModule</span> <span class="pl-kos">{</span><span class="pl-kos">}</span></pre><div class="zeroclipboard-container">
+            <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="import { NgxAccessibleUiModule } from 'ngx-accessible-ui';
+        
+        @NgModule({
+          imports: [NgxAccessibleUiModule],
+        })
+        export class AppModule {}" tabindex="0" role="button">
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+        </svg>
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+            <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+        </svg>
+            </clipboard-copy>
+          </div></div>
+        <p dir="auto">Now, you can use them in your HTML as described below.</p>
+        <p dir="auto">Learn with:</p>
+        <p dir="auto"><a href="#accessibleMenu-Basic-Live-Demo-For-Angular-19">accessibleMenu Basic Live Demo For Angular 19</a></p>
+        <p dir="auto"><a href="#accessibleNavigation-Basic-Live-Demo-For-Angular-19">accessibleNavigation Basic Live Demo For Angular 19</a></p>
+        <p dir="auto"><a href="#accessibleMenu-Advance-Live-Demo-For-Angular-19">accessibleMenu Advance Live Demo For Angular 19</a></p>
+        <p dir="auto"><a href="#accessibleMenu-Advance-Live-Demo-For-Angular-19">accessibleMenu Advance Numpad Live Demo For Angular 19</a></p>
+        <hr>
+        <div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><code>accessibleNavigation</code> Directive</h1></div>
+        <div class="highlight highlight-text-html-basic notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-kos">&lt;</span><span class="pl-ent">div</span> <span class="pl-c1">id</span>="<span class="pl-s">header</span>" <span class="pl-c1">accessibleNavigation</span> <span class="pl-c1">[navMap]</span>="<span class="pl-s">{ page: 1, section: 1 }</span>"<span class="pl-kos">&gt;</span>
+          <span class="pl-kos">&lt;</span><span class="pl-ent">button</span> <span class="pl-c1">data-item</span>="<span class="pl-s">navigationitem</span>"<span class="pl-kos">&gt;</span>Item 1<span class="pl-kos">&lt;/</span><span class="pl-ent">button</span><span class="pl-kos">&gt;</span>
+          <span class="pl-kos">&lt;</span><span class="pl-ent">button</span> <span class="pl-c1">data-item</span>="<span class="pl-s">navigationitem</span>"<span class="pl-kos">&gt;</span>Item 2<span class="pl-kos">&lt;/</span><span class="pl-ent">button</span><span class="pl-kos">&gt;</span>
+        <span class="pl-kos">&lt;/</span><span class="pl-ent">div</span><span class="pl-kos">&gt;</span>
+        
+        <span class="pl-kos">&lt;</span><span class="pl-ent">div</span> <span class="pl-c1">id</span>="<span class="pl-s">main</span>" <span class="pl-c1">accessibleNavigation</span> <span class="pl-c1">[navMap]</span>="<span class="pl-s">{ page: 1, section: 2 }</span>"<span class="pl-kos">&gt;</span>
+          <span class="pl-kos">&lt;</span><span class="pl-ent">button</span> <span class="pl-c1">data-item</span>="<span class="pl-s">navigationitem</span>"<span class="pl-kos">&gt;</span>Item 1<span class="pl-kos">&lt;/</span><span class="pl-ent">button</span><span class="pl-kos">&gt;</span>
+          <span class="pl-kos">&lt;</span><span class="pl-ent">button</span> <span class="pl-c1">data-item</span>="<span class="pl-s">navigationitem</span>"<span class="pl-kos">&gt;</span>Item 2<span class="pl-kos">&lt;/</span><span class="pl-ent">button</span><span class="pl-kos">&gt;</span>
+        <span class="pl-kos">&lt;/</span><span class="pl-ent">div</span><span class="pl-kos">&gt;</span></pre><div class="zeroclipboard-container">
+            <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="<div id=&quot;header&quot; accessibleNavigation [navMap]=&quot;{ page: 1, section: 1 }&quot;>
+          <button data-item=&quot;navigationitem&quot;>Item 1</button>
+          <button data-item=&quot;navigationitem&quot;>Item 2</button>
+        </div>
+        
+        <div id=&quot;main&quot; accessibleNavigation [navMap]=&quot;{ page: 1, section: 2 }&quot;>
+          <button data-item=&quot;navigationitem&quot;>Item 1</button>
+          <button data-item=&quot;navigationitem&quot;>Item 2</button>
+        </div>" tabindex="0" role="button">
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+        </svg>
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+            <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+        </svg>
+            </clipboard-copy>
+          </div></div>
+        <div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto">accessibleNavigation Basic Live Demo For Angular 19</h2></div>
+        <p dir="auto"><a href="https://stackblitz.com/edit/ngx-accessible-ui-accessible-navigation-basic?file=src%2Fmain.ts" rel="nofollow"><img src="https://camo.githubusercontent.com/e9392ad1a0cb081a5be23067cfb953616abc12f4e260f581a302e020c41d41c0/68747470733a2f2f646576656c6f7065722e737461636b626c69747a2e636f6d2f696d672f6f70656e5f696e5f737461636b626c69747a2e737667" alt="View on StackBlitz" data-canonical-src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" style="max-width: 100%;"></a></p>
+        <p dir="auto">For detailed documentation, refer to <a href="#full-documentation">Full Documentation</a>.</p>
+        <hr>
+        <div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><code>accessibleMenu</code> Directive</h1></div>
+        <div class="highlight highlight-text-html-basic notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-kos">&lt;</span><span class="pl-ent">button</span> <span class="pl-c1">accessibleMenu</span> <span class="pl-c1">[mainMenu]</span>="<span class="pl-s">true</span>"<span class="pl-kos">&gt;</span>Open Main Menu<span class="pl-kos">&lt;/</span><span class="pl-ent">button</span><span class="pl-kos">&gt;</span>
+        <span class="pl-kos">&lt;</span><span class="pl-ent">ul</span><span class="pl-kos">&gt;</span>
+          <span class="pl-kos">&lt;</span><span class="pl-ent">li</span> <span class="pl-c1">role</span>="<span class="pl-s">menuitem</span>"<span class="pl-kos">&gt;</span>Item 1<span class="pl-kos">&lt;/</span><span class="pl-ent">li</span><span class="pl-kos">&gt;</span>
+          <span class="pl-kos">&lt;</span><span class="pl-ent">button</span> <span class="pl-c1">role</span>="<span class="pl-s">menuitem</span>" <span class="pl-c1">accessibleMenu</span><span class="pl-kos">&gt;</span>Item 2 Submenu Level 1<span class="pl-kos">&lt;/</span><span class="pl-ent">button</span><span class="pl-kos">&gt;</span>
+          <span class="pl-kos">&lt;</span><span class="pl-ent">ul</span><span class="pl-kos">&gt;</span>
+            <span class="pl-kos">&lt;</span><span class="pl-ent">li</span> <span class="pl-c1">role</span>="<span class="pl-s">menuitem</span>"<span class="pl-kos">&gt;</span>Sub-item Level 1.1<span class="pl-kos">&lt;/</span><span class="pl-ent">li</span><span class="pl-kos">&gt;</span>
+            <span class="pl-kos">&lt;</span><span class="pl-ent">li</span> <span class="pl-c1">role</span>="<span class="pl-s">menuitem</span>"<span class="pl-kos">&gt;</span>Sub-item Level 1.2<span class="pl-kos">&lt;/</span><span class="pl-ent">li</span><span class="pl-kos">&gt;</span>
+          <span class="pl-kos">&lt;/</span><span class="pl-ent">ul</span><span class="pl-kos">&gt;</span>
+        <span class="pl-kos">&lt;/</span><span class="pl-ent">ul</span><span class="pl-kos">&gt;</span></pre><div class="zeroclipboard-container">
+            <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="<button accessibleMenu [mainMenu]=&quot;true&quot;>Open Main Menu</button>
+        <ul>
+          <li role=&quot;menuitem&quot;>Item 1</li>
+          <button role=&quot;menuitem&quot; accessibleMenu>Item 2 Submenu Level 1</button>
+          <ul>
+            <li role=&quot;menuitem&quot;>Sub-item Level 1.1</li>
+            <li role=&quot;menuitem&quot;>Sub-item Level 1.2</li>
+          </ul>
+        </ul>" tabindex="0" role="button">
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+        </svg>
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+            <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+        </svg>
+            </clipboard-copy>
+          </div></div>
+        <div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto">accessibleMenu Basic Live Demo For Angular 19</h2></div>
+        <p dir="auto"><a href="https://stackblitz.com/edit/ngx-accessible-ui-accessible-menu-basic?file=src%2Fmain.ts" rel="nofollow"><img src="https://camo.githubusercontent.com/e9392ad1a0cb081a5be23067cfb953616abc12f4e260f581a302e020c41d41c0/68747470733a2f2f646576656c6f7065722e737461636b626c69747a2e636f6d2f696d672f6f70656e5f696e5f737461636b626c69747a2e737667" alt="View on StackBlitz" data-canonical-src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" style="max-width: 100%;"></a></p>
+        <div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto">accessibleMenu Advance Live Demo For Angular 19</h2></div>
+        <p dir="auto"><a href="https://stackblitz.com/edit/ngx-accessible-ui-accessible-menu-advance?file=src%2FfoodMenu.html" rel="nofollow"><img src="https://camo.githubusercontent.com/e9392ad1a0cb081a5be23067cfb953616abc12f4e260f581a302e020c41d41c0/68747470733a2f2f646576656c6f7065722e737461636b626c69747a2e636f6d2f696d672f6f70656e5f696e5f737461636b626c69747a2e737667" alt="View on StackBlitz" data-canonical-src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" style="max-width: 100%;"></a></p>
+        <div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto">accessibleMenu Advance Numpad Live Demo For Angular 19</h2></div>
+        <p dir="auto"><a href="https://stackblitz.com/edit/ngx-accessible-ui-accessible-menu-advance-numpad?file=src%2FnumpadMenu.html" rel="nofollow"><img src="https://camo.githubusercontent.com/e9392ad1a0cb081a5be23067cfb953616abc12f4e260f581a302e020c41d41c0/68747470733a2f2f646576656c6f7065722e737461636b626c69747a2e636f6d2f696d672f6f70656e5f696e5f737461636b626c69747a2e737667" alt="View on StackBlitz" data-canonical-src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" style="max-width: 100%;"></a></p>
+        <p dir="auto">For detailed documentation, refer to <a href="#full-documentation">Full Documentation</a>.</p>
+        <hr>
+        <div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto">Full Documentation</h1></div>
+        <p dir="auto">1 <a href="#angular-directive-accessibleNavigation">Angular Directive <code>accessibleNavigation</code></a>
+        2 <a href="#angular-directive-accessibleMenu">Angular Directive <code>accessibleMenu</code></a></p>
+        <p dir="auto"><a href="https://www.npmjs.com/package/ngx-accessible-ui" rel="nofollow">View on NPM</a></p>
+        <details>
+        <summary> <strong> accessibleNavigation </strong> </summary>
+        <div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto">Angular Directive accessibleNavigation</h1></div>
+        <p dir="auto">The <code>accessibleNavigation</code> directive, combined with the <code>accessibleMenu</code> directive, enables seamless navigation using all input methods and all directional navigation in any Angular website adhering to WCAG 2.1 Level AA standards and the European Accessibility Act 2025. The directive provides advanced keyboard navigation and focus management between different sections of pages to enhance accessibility in web applications. It dynamically manages focusable elements within a container or section and integrates modern web APIs like <code>IntersectionObserver</code> and <code>MutationObserver</code> to adapt to DOM element changes and element visibility.</p>
+        <div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto">Key Features</h2></div>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">Advanced Keyboard Navigation &amp; Focus Management</h3></div>
+        <ul dir="auto">
+        <li>Default navigation: Tab, Shift+Tab for sections like header, footer, main, aside, etc.; Arrow keys for elements in sections.</li>
+        <li>Supports all directional navigation, irrespective of grid, table, float, or any other structure.</li>
+        <li>Automatically manages focus between navigable pages (i.e., components or child components) when they open or close and remembers the last navigated section on every page and sets focus to the last active element in that section.</li>
+        </ul>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">Dynamic Navigation Map</h3></div>
+        <ul dir="auto">
+        <li>Maintains a static navigation map that tracks page and section information.</li>
+        <li>Automatically updates the navigation map as items are added, removed, or modified.</li>
+        </ul>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">Observer Integration for Responsive Updates</h3></div>
+        <ul dir="auto">
+        <li>Utilizes <strong>IntersectionObserver</strong> to detect when a page becomes visible and adjust focus accordingly.</li>
+        <li>Employs <strong>MutationObserver</strong> to watch for DOM changes (child list) to refresh navigation items dynamically (supports <code>*ngIf</code>/<code>*ngFor</code>). Also, includes a fallback for browsers that do not support <code>IntersectionObserver</code> and <code>MutationObserver</code>.</li>
+        </ul>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">Customizable Navigation Inputs</h3></div>
+        <ul dir="auto">
+        <li>Offers several <code>@Input()</code> properties (e.g., <code>sectionNavKey</code>, <code>navUp</code>, <code>navDown</code>, <code>navLeft</code>, <code>navRight</code>, <code>navKeys</code>) for tailoring navigation behavior.</li>
+        <li>Supports setting a default focus item of a section via the <code>defaultNavItemId</code> input.</li>
+        <li>If space and enter do not work on a button or anchor tag, use <code>[navOpenKeys]="[' ', 'Enter']"</code> to enable click behavior on space and enter keypress. The default is <code>['']</code>.</li>
+        </ul>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">Lock Focus and Scrollable Container Support</h3></div>
+        <ul dir="auto">
+        <li>Allows focus to lock on popups or modal-like components and child components (i.e., pages).</li>
+        <li>Allows specifying a scrollable container (using <code>scrollableContainerId</code>) to handle scrolling with keys such as <code>PageUp</code>, <code>PageDown</code>, <code>Home</code>, and <code>End</code> in scrollable components or pages while maintaining locked focus and navigation.</li>
+        </ul>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">Accessibility Compliance</h3></div>
+        <ul dir="auto">
+        <li>Ensures that navigation items are focusable by automatically assigning <code>tabindex</code> where needed.</li>
+        <li>Designed to work seamlessly with assistive technologies by managing focus order and element visibility.</li>
+        </ul>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">Lifecycle Handling</h3></div>
+        <ul dir="auto">
+        <li>Automatically cleans up observers on directive destruction.</li>
+        <li>Handles edge cases for hidden/removed elements.</li>
+        </ul>
+        <div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto">Requirements</h2></div>
+        <p dir="auto">To ensure the directive works as intended, follow these key rules:</p>
+        <ol dir="auto">
+        <li>Apply the <code>accessibleNavigation</code> directive to each container element (header, main, footer, etc.) that wraps all navigable items on a page.</li>
+        <li>Provide page and section numbers using <code>[navMap]="{ page: 1, section: 1 }"</code> (section <code>1</code> for header, <code>2</code> for main, <code>3</code> for footer, etc.; page <code>2</code> for "About Us," <code>3</code> for "Contact Us," etc.). Ensure page and section numbers start from <code>1</code>.</li>
+        <li>Assign the attribute <code>data-item="navigationitem"</code> to all child elements intended for navigation, regardless of their position within the container or section.</li>
+        </ol>
+        <div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto">Basic Structure</h2></div>
+        <div class="highlight highlight-text-html-basic notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-kos">&lt;</span><span class="pl-ent">div</span> <span class="pl-c1">id</span>="<span class="pl-s">header</span>" <span class="pl-c1">accessibleNavigation</span> <span class="pl-c1">[navMap]</span>="<span class="pl-s">{ page: 1, section: 1 }</span>"<span class="pl-kos">&gt;</span>
+          <span class="pl-kos">&lt;</span><span class="pl-ent">button</span> <span class="pl-c1">data-item</span>="<span class="pl-s">navigationitem</span>"<span class="pl-kos">&gt;</span>Item 1<span class="pl-kos">&lt;/</span><span class="pl-ent">button</span><span class="pl-kos">&gt;</span>
+          <span class="pl-kos">&lt;</span><span class="pl-ent">button</span> <span class="pl-c1">data-item</span>="<span class="pl-s">navigationitem</span>"<span class="pl-kos">&gt;</span>Item 2<span class="pl-kos">&lt;/</span><span class="pl-ent">button</span><span class="pl-kos">&gt;</span>
+        <span class="pl-kos">&lt;/</span><span class="pl-ent">div</span><span class="pl-kos">&gt;</span>
+        <span class="pl-kos">&lt;</span><span class="pl-ent">div</span> <span class="pl-c1">id</span>="<span class="pl-s">main</span>" <span class="pl-c1">accessibleNavigation</span> <span class="pl-c1">[navMap]</span>="<span class="pl-s">{ page: 1, section: 2 }</span>"<span class="pl-kos">&gt;</span>
+          <span class="pl-kos">&lt;</span><span class="pl-ent">button</span> <span class="pl-c1">data-item</span>="<span class="pl-s">navigationitem</span>"<span class="pl-kos">&gt;</span>Item 1<span class="pl-kos">&lt;/</span><span class="pl-ent">button</span><span class="pl-kos">&gt;</span>
+          <span class="pl-kos">&lt;</span><span class="pl-ent">button</span> <span class="pl-c1">data-item</span>="<span class="pl-s">navigationitem</span>"<span class="pl-kos">&gt;</span>Item 2<span class="pl-kos">&lt;/</span><span class="pl-ent">button</span><span class="pl-kos">&gt;</span>
+        <span class="pl-kos">&lt;/</span><span class="pl-ent">div</span><span class="pl-kos">&gt;</span></pre><div class="zeroclipboard-container">
+            <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="<div id=&quot;header&quot; accessibleNavigation [navMap]=&quot;{ page: 1, section: 1 }&quot;>
+          <button data-item=&quot;navigationitem&quot;>Item 1</button>
+          <button data-item=&quot;navigationitem&quot;>Item 2</button>
+        </div>
+        <div id=&quot;main&quot; accessibleNavigation [navMap]=&quot;{ page: 1, section: 2 }&quot;>
+          <button data-item=&quot;navigationitem&quot;>Item 1</button>
+          <button data-item=&quot;navigationitem&quot;>Item 2</button>
+        </div>" tabindex="0" role="button">
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+        </svg>
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+            <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+        </svg>
+            </clipboard-copy>
+          </div></div>
+        <div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto">Optional Features</h2></div>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">Default Navigation Element</h3></div>
+        <p dir="auto">Specify the ID of the element to be focused by default. If not specified or unavailable, focus will automatically shift to the first visible element in the viewport. Automatically detects changes to the default navigation item when the bound variable specifying its ID updates and shifts focus accordingly when navigating to that section.</p>
+        <div class="highlight highlight-text-html-basic notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-kos">&lt;</span><span class="pl-ent">div</span> <span class="pl-c1">accessibleNavigation</span> <span class="pl-c1">[defaultNavItemId]</span>="<span class="pl-s">'linkNameId' + numberVariable</span>"<span class="pl-kos">&gt;</span>
+          <span class="pl-kos">&lt;</span><span class="pl-ent">button</span> <span class="pl-c1">id</span>="<span class="pl-s">link1</span>" <span class="pl-c1">data-item</span>="<span class="pl-s">navigationitem</span>"<span class="pl-kos">&gt;</span>Item 1<span class="pl-kos">&lt;/</span><span class="pl-ent">button</span><span class="pl-kos">&gt;</span>
+          <span class="pl-kos">&lt;</span><span class="pl-ent">button</span> <span class="pl-c1">id</span>="<span class="pl-s">link2</span>" <span class="pl-c1">data-item</span>="<span class="pl-s">navigationitem</span>"<span class="pl-kos">&gt;</span>Item 2<span class="pl-kos">&lt;/</span><span class="pl-ent">button</span><span class="pl-kos">&gt;</span>
+        <span class="pl-kos">&lt;/</span><span class="pl-ent">div</span><span class="pl-kos">&gt;</span></pre><div class="zeroclipboard-container">
+            <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="<div accessibleNavigation [defaultNavItemId]=&quot;'linkNameId' + numberVariable&quot;>
+          <button id=&quot;link1&quot; data-item=&quot;navigationitem&quot;>Item 1</button>
+          <button id=&quot;link2&quot; data-item=&quot;navigationitem&quot;>Item 2</button>
+        </div>" tabindex="0" role="button">
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+        </svg>
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+            <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+        </svg>
+            </clipboard-copy>
+          </div></div>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">Custom Navigation Keys</h3></div>
+        <p dir="auto">Override default navigation key arrays:</p>
+        <div class="highlight highlight-text-html-basic notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-kos">&lt;</span><span class="pl-ent">div</span> <span class="pl-c1">accessibleNavigation</span>
+             <span class="pl-c1">[navUp]</span>="<span class="pl-s">['W', 'ArrowUp']</span>"
+             <span class="pl-c1">[navDown]</span>="<span class="pl-s">['S', 'ArrowDown']</span>"
+             <span class="pl-c1">[navLeft]</span>="<span class="pl-s">['A', 'ArrowLeft']</span>"
+             <span class="pl-c1">[navRight]</span>="<span class="pl-s">['D', 'ArrowRight']</span>"<span class="pl-kos">&gt;</span>
+          <span class="pl-c">&lt;!-- Navigation items --&gt;</span>
+        <span class="pl-kos">&lt;/</span><span class="pl-ent">div</span><span class="pl-kos">&gt;</span></pre><div class="zeroclipboard-container">
+            <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="<div accessibleNavigation
+             [navUp]=&quot;['W', 'ArrowUp']&quot;
+             [navDown]=&quot;['S', 'ArrowDown']&quot;
+             [navLeft]=&quot;['A', 'ArrowLeft']&quot;
+             [navRight]=&quot;['D', 'ArrowRight']&quot;>
+          <!-- Navigation items -->
+        </div>" tabindex="0" role="button">
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+        </svg>
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+            <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+        </svg>
+            </clipboard-copy>
+          </div></div>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">Scrollable Container</h3></div>
+        <p dir="auto">If your container is scrollable but is a popup or modal-like page, and scrolling is happening in the background instead of the current page, set the container ID to enable proper handling of scrolling keys: <code>PageUp</code>, <code>PageDown</code>, <code>Home</code>, and <code>End</code> to scroll only the current page scrollable container.</p>
+        <div class="highlight highlight-text-html-basic notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-kos">&lt;</span><span class="pl-ent">div</span> <span class="pl-c1">id</span>="<span class="pl-s">scrollableContainer</span>" <span class="pl-c1">style</span>="<span class="pl-s">height: 400px; overflow-y: auto;</span>"<span class="pl-kos">&gt;</span>
+          <span class="pl-kos">&lt;</span><span class="pl-ent">div</span> <span class="pl-c1">accessibleNavigation</span> <span class="pl-c1">[scrollableContainerId]</span>="<span class="pl-s">'scrollableContainer'</span>"<span class="pl-kos">&gt;</span>
+            <span class="pl-c">&lt;!-- Navigation items --&gt;</span>
+          <span class="pl-kos">&lt;/</span><span class="pl-ent">div</span><span class="pl-kos">&gt;</span>
+        <span class="pl-kos">&lt;/</span><span class="pl-ent">div</span><span class="pl-kos">&gt;</span></pre><div class="zeroclipboard-container">
+            <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="<div id=&quot;scrollableContainer&quot; style=&quot;height: 400px; overflow-y: auto;&quot;>
+          <div accessibleNavigation [scrollableContainerId]=&quot;'scrollableContainer'&quot;>
+            <!-- Navigation items -->
+          </div>
+        </div>" tabindex="0" role="button">
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+        </svg>
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+            <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+        </svg>
+            </clipboard-copy>
+          </div></div>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">Subtree Option</h3></div>
+        <p dir="auto">Watches for changes in the <code>descendants</code> of direct child elements within the container (default: <code>true</code>). Set <code>[subtree]="false"</code> if change in direct child elements is enough for mutation observer to refresh navigation items and there are many items in that section.</p>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">Ignoring Keypress in Inputs</h3></div>
+        <p dir="auto">By default, keypress events are ignored in <code>['text', 'search', 'range']</code> input types. Additional input types can be specified:</p>
+        <div class="highlight highlight-text-html-basic notranslate position-relative overflow-auto" dir="auto"><pre>[inputTypesToIgnoreOnKeypress]="['text', 'search', 'range', 'additionalInputType']"</pre><div class="zeroclipboard-container">
+            <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="[inputTypesToIgnoreOnKeypress]=&quot;['text', 'search', 'range', 'additionalInputType']&quot;" tabindex="0" role="button">
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+        </svg>
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+            <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+        </svg>
+            </clipboard-copy>
+          </div></div>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">Always Refresh Navigation Items</h3></div>
+        <p dir="auto">Enable <code>[alwaysRefreshNavItems]="true"</code> to update navigation items dynamically on every keypress if items are few but keep changing.</p>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">Lock Focus</h3></div>
+        <p dir="auto">Set <code>[lockFocus]="true"</code> to lock focus within a popup or modal-like page, if focus or scrolling is happening in the background instead of the current page, by applying <code>event.preventDefault()</code> on each keypress as long as focus is inside that page. Limit scrolling with PageUp, PageDown, Home, and End keys to the specified scrollable container if an ID is specified with <code>[scrollableContainerId] = "'scrollableContainerId'"</code>.</p>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">NavKeysToExitInputElement</h3></div>
+        <p dir="auto">Configure keys to exit an input element (default: <code>['Tab', 'Escape', 'ArrowDown', 'ArrowUp']</code>).</p>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">NavOpenKeys</h3></div>
+        <p dir="auto">Define keys to open a navigation item with click (default: <code>['']</code>). Use <code>[navOpenKeys]="[' ', 'Enter']"</code> when space or enter does not trigger a click event.</p>
+        <div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto">Other Configuration Options</h2></div>
+        <markdown-accessiblity-table data-catalyst=""><table>
+        <thead>
+        <tr>
+        <th>Input</th>
+        <th>Default Values</th>
+        <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td><code>navMap</code></td>
+        <td><code>{ page: null, section: null }</code></td>
+        <td>Page and section number for navigation map</td>
+        </tr>
+        <tr>
+        <td><code>sectionNavKey</code></td>
+        <td><code>['Tab']</code></td>
+        <td>Keys for section navigation</td>
+        </tr>
+        </tbody>
+        </table></markdown-accessiblity-table>
+        <div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto">Notes</h2></div>
+        <ul dir="auto">
+        <li>Uses Angular lifecycle hooks (<code>AfterViewInit</code>, <code>OnDestroy</code>) to manage observers.</li>
+        <li>Available as <code>accessibleNavigation</code> via <code>exportAs</code> for dynamic focus handling.</li>
+        </ul>
+        </details>
+        <details>
+        <summary> <strong> accessibleMenu </strong> </summary>
+        <div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto">Angular Directive accessibleMenu</h1></div>
+        <div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto">Overview</h2></div>
+        <p dir="auto">The <code>accessibleMenu</code> directive is designed to create or convert any existing menu into fully accessible menus and submenus that comply with <strong>WCAG 2.1 Level AA</strong> and the <strong>European Accessibility Act 2025</strong>. It ensures seamless navigation via keyboard, mouse, and touch while providing advanced features like dynamic ARIA attributes, multi-level menu support, and customizable search functionality.</p>
+        <div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto">Key Features</h2></div>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">1. Accessibility Compliance</h3></div>
+        <ul dir="auto">
+        <li><strong>WCAG 2.1 Level AA &amp; European Accessibility Act 2025 Compliant</strong>: Ensures menus are fully accessible via keyboard and meet modern accessibility standards.</li>
+        <li><strong>Dynamic ARIA Attributes</strong>: Automatically assigns <code>aria-haspopup</code>, <code>role</code>, <code>aria-controls</code>, and <code>aria-expanded</code> attributes for proper screen reader support.</li>
+        <li><strong>Assistive Technology Compatibility</strong>: Works seamlessly with screen readers and other assistive technologies.</li>
+        </ul>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">2. Navigation</h3></div>
+        <ul dir="auto">
+        <li><strong>Keyboard, Mouse, and Touch Support</strong>: Enables navigation using all input methods.</li>
+        <li><strong>Restricted Focus for Keyboard Users</strong>: Keeps focus within the current menu or submenu until the Escape key (for main menu) or Left Arrow/Escape key (for submenu) is pressed.</li>
+        <li><strong>All-Direction Navigation</strong>: Allows navigation in all directions using arrow keys, regardless of menu structure (grid, table, float, etc.).</li>
+        <li><strong>Numpad Support for Touch Users</strong>: Enables touch users to navigate or input using a numpad without activating the native keyboard.</li>
+        </ul>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">3. Dynamic Menu Behavior</h3></div>
+        <ul dir="auto">
+        <li><strong>Multi-Level Menu Support</strong>: Handles infinite levels of nested menus.</li>
+        <li><strong>Auto Close</strong>: Closes other menus when a new menu is opened or when clicking outside the menu.</li>
+        <li><strong>Dynamic Open/Close Control</strong>: Supports submenus and items that remain always open or dynamically open based on data attributes.</li>
+        </ul>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">4. Search Functionality</h3></div>
+        <ul dir="auto">
+        <li><strong>Advanced Two-Level Search</strong>: Allows menu-wise and item-wise search using a single input field.</li>
+        <li><strong>Numpad Search</strong>: Enables search using numpad keys (touch, mouse, or number keys).</li>
+        <li><strong>Direct Search</strong>: If no search field or numpad is present, direct search is performed using any key.</li>
+        </ul>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">5. Customization</h3></div>
+        <ul dir="auto">
+        <li><strong>Custom Navigation Keys</strong>: Override default navigation keys per menu using <code>(navUp)</code>, <code>(navDown)</code>, <code>(navOpenMenu)</code>, <code>(navExitMenu)</code>, <code>(navLeft)</code>, and <code>(navRight)</code>.</li>
+        <li><strong>Template Variables</strong>: Use template variables for conditional rendering (e.g., showing different icons based on menu state).</li>
+        <li><strong>Shortcut Keys</strong>: Open the main menu using a specific key combination (e.g., <code>Ctrl+Alt+X</code>).</li>
+        </ul>
+        <div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto">Requirements</h2></div>
+        <p dir="auto">To ensure the directive works as intended, follow these rules:</p>
+        <ol dir="auto">
+        <li>Apply the <code>accessibleMenu</code> directive to the menu-opening element (e.g., <code>&lt;button&gt;</code>, <code>&lt;div&gt;</code>).</li>
+        <li>Use the <code>mainMenu</code> input to designate the main menu button:
+        <div class="highlight highlight-text-html-basic notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-kos">&lt;</span><span class="pl-ent">button</span> <span class="pl-c1">accessibleMenu</span> <span class="pl-c1">[mainMenu]</span>="<span class="pl-s">true</span>"<span class="pl-kos">&gt;</span>Open Main Menu<span class="pl-kos">&lt;/</span><span class="pl-ent">button</span><span class="pl-kos">&gt;</span></pre><div class="zeroclipboard-container">
+            <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="<button accessibleMenu [mainMenu]=&quot;true&quot;>Open Main Menu</button>" tabindex="0" role="button">
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+        </svg>
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+            <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+        </svg>
+            </clipboard-copy>
+          </div></div>
+        </li>
+        <li>The menu container must be the next sibling (<code>nextElementSibling</code>) of the menu-opening element.</li>
+        <li>Assign <code>role="menuitem"</code> to all menu items, regardless of their position in the menu container.</li>
+        </ol>
+        <div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto">Basic Structure</h2></div>
+        <div class="highlight highlight-text-html-basic notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-kos">&lt;</span><span class="pl-ent">button</span> <span class="pl-c1">accessibleMenu</span> <span class="pl-c1">[mainMenu]</span>="<span class="pl-s">true</span>"<span class="pl-kos">&gt;</span>Open Main Menu<span class="pl-kos">&lt;/</span><span class="pl-ent">button</span><span class="pl-kos">&gt;</span>
+        <span class="pl-kos">&lt;</span><span class="pl-ent">ul</span><span class="pl-kos">&gt;</span>
+          <span class="pl-kos">&lt;</span><span class="pl-ent">li</span> <span class="pl-c1">role</span>="<span class="pl-s">menuitem</span>"<span class="pl-kos">&gt;</span>Item 1<span class="pl-kos">&lt;/</span><span class="pl-ent">li</span><span class="pl-kos">&gt;</span>
+          <span class="pl-kos">&lt;</span><span class="pl-ent">button</span> <span class="pl-c1">role</span>="<span class="pl-s">menuitem</span>" <span class="pl-c1">accessibleMenu</span><span class="pl-kos">&gt;</span>Item 2 Submenu Level 1<span class="pl-kos">&lt;/</span><span class="pl-ent">button</span><span class="pl-kos">&gt;</span>
+          <span class="pl-kos">&lt;</span><span class="pl-ent">ul</span><span class="pl-kos">&gt;</span>
+            <span class="pl-kos">&lt;</span><span class="pl-ent">li</span> <span class="pl-c1">role</span>="<span class="pl-s">menuitem</span>"<span class="pl-kos">&gt;</span>Sub-item Level 1.1<span class="pl-kos">&lt;/</span><span class="pl-ent">li</span><span class="pl-kos">&gt;</span>
+            <span class="pl-kos">&lt;</span><span class="pl-ent">li</span> <span class="pl-c1">role</span>="<span class="pl-s">menuitem</span>"<span class="pl-kos">&gt;</span>Sub-item Level 1.2<span class="pl-kos">&lt;/</span><span class="pl-ent">li</span><span class="pl-kos">&gt;</span>
+          <span class="pl-kos">&lt;/</span><span class="pl-ent">ul</span><span class="pl-kos">&gt;</span>
+        <span class="pl-kos">&lt;/</span><span class="pl-ent">ul</span><span class="pl-kos">&gt;</span></pre><div class="zeroclipboard-container">
+            <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="<button accessibleMenu [mainMenu]=&quot;true&quot;>Open Main Menu</button>
+        <ul>
+          <li role=&quot;menuitem&quot;>Item 1</li>
+          <button role=&quot;menuitem&quot; accessibleMenu>Item 2 Submenu Level 1</button>
+          <ul>
+            <li role=&quot;menuitem&quot;>Sub-item Level 1.1</li>
+            <li role=&quot;menuitem&quot;>Sub-item Level 1.2</li>
+          </ul>
+        </ul>" tabindex="0" role="button">
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+        </svg>
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+            <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+        </svg>
+            </clipboard-copy>
+          </div></div>
+        <div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto">Optional Features</h2></div>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">1. All-Direction Navigation</h3></div>
+        <p dir="auto">Enable navigation in all directions using arrow keys:</p>
+        <div class="highlight highlight-text-html-basic notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-kos">&lt;</span><span class="pl-ent">button</span> <span class="pl-c1">accessibleMenu</span> <span class="pl-c1">[allDirectionNavigation]</span>="<span class="pl-s">true</span>"<span class="pl-kos">&gt;</span>Open Menu<span class="pl-kos">&lt;/</span><span class="pl-ent">button</span><span class="pl-kos">&gt;</span></pre><div class="zeroclipboard-container">
+            <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="<button accessibleMenu [allDirectionNavigation]=&quot;true&quot;>Open Menu</button>" tabindex="0" role="button">
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+        </svg>
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+            <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+        </svg>
+            </clipboard-copy>
+          </div></div>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">2. Advanced Two-Level Search</h3></div>
+        <p dir="auto">Enable search functionality using an input field: Menu-wise and item-wise search using the same input field. Example: Searching "Italian" shows all items under the "Italian" menu and any matching items like "Italian Dressing" or "Italian Soda" across other menus.</p>
+        <div class="highlight highlight-text-html-basic notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-kos">&lt;</span><span class="pl-ent">input</span> <span class="pl-c1">type</span>="<span class="pl-s">text</span>" <span class="pl-c1">role</span>="<span class="pl-s">menuitem</span>" <span class="pl-c1">data-use-search</span>="<span class="pl-s">true</span>" <span class="pl-c1">placeholder</span>="<span class="pl-s">Search...</span>"<span class="pl-kos">&gt;</span></pre><div class="zeroclipboard-container">
+            <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="<input type=&quot;text&quot; role=&quot;menuitem&quot; data-use-search=&quot;true&quot; placeholder=&quot;Search...&quot;>" tabindex="0" role="button">
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+        </svg>
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+            <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+        </svg>
+            </clipboard-copy>
+          </div></div>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">3. Keep Submenu Open</h3></div>
+        <p dir="auto">Keep a submenu open using the <code>data-keep-submenu-open</code> attribute:</p>
+        <div class="highlight highlight-text-html-basic notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-kos">&lt;</span><span class="pl-ent">button</span> <span class="pl-c1">role</span>="<span class="pl-s">menuitem</span>" <span class="pl-c1">accessibleMenu</span> <span class="pl-c1">data-keep-submenu-open</span>="<span class="pl-s">true</span>"<span class="pl-kos">&gt;</span>Open Submenu<span class="pl-kos">&lt;/</span><span class="pl-ent">button</span><span class="pl-kos">&gt;</span></pre><div class="zeroclipboard-container">
+            <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="<button role=&quot;menuitem&quot; accessibleMenu data-keep-submenu-open=&quot;true&quot;>Open Submenu</button>" tabindex="0" role="button">
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+        </svg>
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+            <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+        </svg>
+            </clipboard-copy>
+          </div></div>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">4. Always Open Submenu Item</h3></div>
+        <ul dir="auto">
+        <li>Simple Example:</li>
+        </ul>
+        <div class="highlight highlight-text-html-basic notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-kos">&lt;</span><span class="pl-ent">li</span> <span class="pl-c1">role</span>="<span class="pl-s">menuitem</span>" <span class="pl-c1">data-always-open</span>="<span class="pl-s">true</span>"<span class="pl-kos">&gt;</span>Sub-item Level 2.2<span class="pl-kos">&lt;/</span><span class="pl-ent">li</span><span class="pl-kos">&gt;</span></pre><div class="zeroclipboard-container">
+            <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="<li role=&quot;menuitem&quot; data-always-open=&quot;true&quot;>Sub-item Level 2.2</li>" tabindex="0" role="button">
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+        </svg>
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+            <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+        </svg>
+            </clipboard-copy>
+          </div></div>
+        <ul dir="auto">
+        <li>Conditional Example:</li>
+        </ul>
+        <div class="highlight highlight-text-html-basic notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-kos">&lt;</span><span class="pl-ent">li</span> <span class="pl-c1">role</span>="<span class="pl-s">menuitem</span>" <span class="pl-c1">[attr.data-always-open]</span>="<span class="pl-s">(author === 'Default') ? 'true' : 'false'</span>"<span class="pl-kos">&gt;</span>
+          Sub-item Level 2.2
+        <span class="pl-kos">&lt;/</span><span class="pl-ent">li</span><span class="pl-kos">&gt;</span></pre><div class="zeroclipboard-container">
+            <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="<li role=&quot;menuitem&quot; [attr.data-always-open]=&quot;(author === 'Default') ? 'true' : 'false'&quot;>
+          Sub-item Level 2.2
+        </li>" tabindex="0" role="button">
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+        </svg>
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+            <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+        </svg>
+            </clipboard-copy>
+          </div></div>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">5. Remember Last Menu Item</h3></div>
+        <div class="highlight highlight-text-html-basic notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-kos">&lt;</span><span class="pl-ent">button</span> <span class="pl-c1">accessibleMenu</span> <span class="pl-c1">[rememberLastMenuitem]</span>="<span class="pl-s">true</span>"<span class="pl-kos">&gt;</span>Open Menu<span class="pl-kos">&lt;/</span><span class="pl-ent">button</span><span class="pl-kos">&gt;</span></pre><div class="zeroclipboard-container">
+            <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="<button accessibleMenu [rememberLastMenuitem]=&quot;true&quot;>Open Menu</button>" tabindex="0" role="button">
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+        </svg>
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+            <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+        </svg>
+            </clipboard-copy>
+          </div></div>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">6. Close Menu Upon Selection</h3></div>
+        <div class="highlight highlight-text-html-basic notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-kos">&lt;</span><span class="pl-ent">button</span> <span class="pl-c1">accessibleMenu</span> <span class="pl-c1">[closeMenuUponSelection]</span>="<span class="pl-s">true</span>"<span class="pl-kos">&gt;</span>Open Menu<span class="pl-kos">&lt;/</span><span class="pl-ent">button</span><span class="pl-kos">&gt;</span></pre><div class="zeroclipboard-container">
+            <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="<button accessibleMenu [closeMenuUponSelection]=&quot;true&quot;>Open Menu</button>" tabindex="0" role="button">
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+        </svg>
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+            <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+        </svg>
+            </clipboard-copy>
+          </div></div>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">7. Custom Navigation Keys</h3></div>
+        <div class="highlight highlight-text-html-basic notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-kos">&lt;</span><span class="pl-ent">button</span> <span class="pl-c1">accessibleMenu</span> <span class="pl-c1">(navUp)</span>="<span class="pl-s">['ArrowUp', 'W']</span>" <span class="pl-c1">(navDown)</span>="<span class="pl-s">['ArrowDown', 'S']</span>"<span class="pl-kos">&gt;</span>Open Menu<span class="pl-kos">&lt;/</span><span class="pl-ent">button</span><span class="pl-kos">&gt;</span></pre><div class="zeroclipboard-container">
+            <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="<button accessibleMenu (navUp)=&quot;['ArrowUp', 'W']&quot; (navDown)=&quot;['ArrowDown', 'S']&quot;>Open Menu</button>" tabindex="0" role="button">
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+        </svg>
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+            <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+        </svg>
+            </clipboard-copy>
+          </div></div>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">8. Template Variables</h3></div>
+        <div class="highlight highlight-text-html-basic notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-kos">&lt;</span><span class="pl-ent">button</span> <span class="pl-c1">accessibleMenu</span> <span class="pl-c1">#templateVar</span>="<span class="pl-s">accessibleMenu</span>"<span class="pl-kos">&gt;</span>
+          <span class="pl-kos">&lt;</span><span class="pl-ent">svg</span> <span class="pl-c1">*ngIf</span>="<span class="pl-s">templateVar.menuState === 'Close'</span>"<span class="pl-kos">&gt;</span>Left Arrow Icon<span class="pl-kos">&lt;/</span><span class="pl-ent">svg</span><span class="pl-kos">&gt;</span>
+          <span class="pl-kos">&lt;</span><span class="pl-ent">svg</span> <span class="pl-c1">*ngIf</span>="<span class="pl-s">templateVar.menuState === 'Open'</span>"<span class="pl-kos">&gt;</span>Down Arrow Icon<span class="pl-kos">&lt;/</span><span class="pl-ent">svg</span><span class="pl-kos">&gt;</span>
+        <span class="pl-kos">&lt;/</span><span class="pl-ent">button</span><span class="pl-kos">&gt;</span></pre><div class="zeroclipboard-container">
+            <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="<button accessibleMenu #templateVar=&quot;accessibleMenu&quot;>
+          <svg *ngIf=&quot;templateVar.menuState === 'Close'&quot;>Left Arrow Icon</svg>
+          <svg *ngIf=&quot;templateVar.menuState === 'Open'&quot;>Down Arrow Icon</svg>
+        </button>" tabindex="0" role="button">
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+        </svg>
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+            <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+        </svg>
+            </clipboard-copy>
+          </div></div>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">9. Numpad Support</h3></div>
+        <div class="highlight highlight-text-html-basic notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-kos">&lt;</span><span class="pl-ent">button</span> <span class="pl-c1">accessibleMenu</span> <span class="pl-c1">[mainMenu]</span>="<span class="pl-s">true</span>"<span class="pl-kos">&gt;</span>Open Main Menu<span class="pl-kos">&lt;/</span><span class="pl-ent">button</span><span class="pl-kos">&gt;</span>
+        <span class="pl-kos">&lt;</span><span class="pl-ent">ul</span><span class="pl-kos">&gt;</span>
+          <span class="pl-kos">&lt;</span><span class="pl-ent">li</span> <span class="pl-c1">role</span>="<span class="pl-s">menuitem</span>"<span class="pl-kos">&gt;</span>Item 1<span class="pl-kos">&lt;/</span><span class="pl-ent">li</span><span class="pl-kos">&gt;</span>
+          <span class="pl-kos">&lt;</span><span class="pl-ent">li</span> <span class="pl-c1">role</span>="<span class="pl-s">menuitem</span>"<span class="pl-kos">&gt;</span>Item 2<span class="pl-kos">&lt;/</span><span class="pl-ent">li</span><span class="pl-kos">&gt;</span>
+          <span class="pl-kos">&lt;</span><span class="pl-ent">aside</span> <span class="pl-c1">role</span>="<span class="pl-s">menuitem</span>" <span class="pl-c1">data-use-numpad</span>="<span class="pl-s">true</span>"<span class="pl-kos">&gt;</span>
+            <span class="pl-kos">&lt;</span><span class="pl-ent">div</span> <span class="pl-c1">role</span>="<span class="pl-s">status</span>"<span class="pl-kos">&gt;</span>Enter Number<span class="pl-kos">&lt;/</span><span class="pl-ent">div</span><span class="pl-kos">&gt;</span>
+            <span class="pl-kos">&lt;</span><span class="pl-ent">div</span> <span class="pl-c1">class</span>="<span class="pl-s">numpad</span>"<span class="pl-kos">&gt;</span>
+              <span class="pl-kos">&lt;</span><span class="pl-ent">button</span> <span class="pl-c1">*ngFor</span>="<span class="pl-s">let button of ['1','2','3','4','5','6','7','8','9']</span>" <span class="pl-c1">role</span>="<span class="pl-s">button</span>" <span class="pl-c1">data-button-type</span>="<span class="pl-s">number</span>"<span class="pl-kos">&gt;</span>{{ button }}<span class="pl-kos">&lt;/</span><span class="pl-ent">button</span><span class="pl-kos">&gt;</span>
+              <span class="pl-kos">&lt;</span><span class="pl-ent">button</span> <span class="pl-c1">role</span>="<span class="pl-s">button</span>" <span class="pl-c1">data-button-type</span>="<span class="pl-s">backspace</span>"<span class="pl-kos">&gt;</span>&amp;#x232B;<span class="pl-kos">&lt;/</span><span class="pl-ent">button</span><span class="pl-kos">&gt;</span>
+              <span class="pl-kos">&lt;</span><span class="pl-ent">button</span> <span class="pl-c1">role</span>="<span class="pl-s">button</span>" <span class="pl-c1">data-button-type</span>="<span class="pl-s">number</span>"<span class="pl-kos">&gt;</span>0<span class="pl-kos">&lt;/</span><span class="pl-ent">button</span><span class="pl-kos">&gt;</span>
+              <span class="pl-kos">&lt;</span><span class="pl-ent">button</span> <span class="pl-c1">role</span>="<span class="pl-s">button</span>" <span class="pl-c1">data-button-type</span>="<span class="pl-s">enter</span>"<span class="pl-kos">&gt;</span>&amp;#x21B5;<span class="pl-kos">&lt;/</span><span class="pl-ent">button</span><span class="pl-kos">&gt;</span>
+            <span class="pl-kos">&lt;/</span><span class="pl-ent">div</span><span class="pl-kos">&gt;</span>
+          <span class="pl-kos">&lt;/</span><span class="pl-ent">aside</span><span class="pl-kos">&gt;</span>
+        <span class="pl-kos">&lt;/</span><span class="pl-ent">ul</span><span class="pl-kos">&gt;</span></pre><div class="zeroclipboard-container">
+            <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="<button accessibleMenu [mainMenu]=&quot;true&quot;>Open Main Menu</button>
+        <ul>
+          <li role=&quot;menuitem&quot;>Item 1</li>
+          <li role=&quot;menuitem&quot;>Item 2</li>
+          <aside role=&quot;menuitem&quot; data-use-numpad=&quot;true&quot;>
+            <div role=&quot;status&quot;>Enter Number</div>
+            <div class=&quot;numpad&quot;>
+              <button *ngFor=&quot;let button of ['1','2','3','4','5','6','7','8','9']&quot; role=&quot;button&quot; data-button-type=&quot;number&quot;>{{ button }}</button>
+              <button role=&quot;button&quot; data-button-type=&quot;backspace&quot;>&amp;#x232B;</button>
+              <button role=&quot;button&quot; data-button-type=&quot;number&quot;>0</button>
+              <button role=&quot;button&quot; data-button-type=&quot;enter&quot;>&amp;#x21B5;</button>
+            </div>
+          </aside>
+        </ul>" tabindex="0" role="button">
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+        </svg>
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+            <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+        </svg>
+            </clipboard-copy>
+          </div></div>
+        <div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">10. Shortcut Key</h3></div>
+        <div class="highlight highlight-text-html-basic notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-kos">&lt;</span><span class="pl-ent">button</span> <span class="pl-c1">accessibleMenu</span> <span class="pl-c1">[shortcutKey]</span>="<span class="pl-s">'M'</span>"<span class="pl-kos">&gt;</span>Open Main Menu<span class="pl-kos">&lt;/</span><span class="pl-ent">button</span><span class="pl-kos">&gt;</span></pre><div class="zeroclipboard-container">
+            <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="<button accessibleMenu [shortcutKey]=&quot;'M'&quot;>Open Main Menu</button>" tabindex="0" role="button">
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+        </svg>
+              <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+            <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+        </svg>
+            </clipboard-copy>
+          </div></div>
+        <div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto">Configuration Options</h2></div>
+        <markdown-accessiblity-table data-catalyst=""><table>
+        <thead>
+        <tr>
+        <th>Input</th>
+        <th>Default Values</th>
+        <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td><code>inputTypesToIgnoreOnKeypress</code></td>
+        <td><code>['text', 'search', 'range']</code></td>
+        <td>Input types to ignore keypress events</td>
+        </tr>
+        <tr>
+        <td><code>navKeysToExitInputElement</code></td>
+        <td><code>['Tab', 'Escape', 'ArrowDown', 'ArrowUp']</code></td>
+        <td>Keys to exit an input element</td>
+        </tr>
+        <tr>
+        <td><code>navUp</code></td>
+        <td><code>['ArrowUp']</code></td>
+        <td>Keys for navigating up</td>
+        </tr>
+        <tr>
+        <td><code>navDown</code></td>
+        <td><code>['ArrowDown', 'Tab']</code></td>
+        <td>Keys for navigating down</td>
+        </tr>
+        <tr>
+        <td><code>navLeft</code></td>
+        <td><code>['ArrowLeft']</code></td>
+        <td>Keys for navigating left</td>
+        </tr>
+        <tr>
+        <td><code>navRight</code></td>
+        <td><code>['ArrowRight']</code></td>
+        <td>Keys for navigating right</td>
+        </tr>
+        <tr>
+        <td><code>navOpenMenu</code></td>
+        <td><code>[' ', 'Enter']</code></td>
+        <td>Keys for opening a menu</td>
+        </tr>
+        <tr>
+        <td><code>navExitMenu</code></td>
+        <td><code>['Escape']</code></td>
+        <td>Keys for closing a menu</td>
+        </tr>
+        </tbody>
+        </table></markdown-accessiblity-table>
+        <div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto">Notes</h2></div>
+        <ul dir="auto">
+        <li>Fully supports Angular's <code>*ngIf</code> for dynamic rendering.</li>
+        <li>Works seamlessly with custom templates and dynamic DOM changes.</li>
+        <li>Available as <code>accessibleMenu</code> via <code>exportAs</code> for dynamic focus handling.</li>
+        </ul>
+        <hr>
+        </details>
+        <div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto">Contributing</h1></div>
+        <p dir="auto">We welcome contributions! If you find an issue or want to improve this package:</p>
+        <ol dir="auto">
+        <li>Fork the repository</li>
+        <li>Create a new branch (<code>feature/my-feature</code>)</li>
+        <li>Commit your changes</li>
+        <li>Open a pull request</li>
+        </ol>
+        <div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto">License</h1></div>
+        <p dir="auto">This project is licensed under the MIT License.</p>
+        <hr>
+        <p dir="auto"><strong>Maintained by:</strong> [Shakeel Kadri]</p>
+        </article>
+</body>
+
+</html>
