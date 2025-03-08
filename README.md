@@ -39,9 +39,11 @@ Learn with:
 
 [accessibleMenu Basic Live Demo For Angular 19](#accessibleMenu-Basic-Live-Demo-For-Angular-19) 
 
+[accessibleNavigation Basic Live Demo For Angular 19](#accessibleNavigation-Basic-Live-Demo-For-Angular-19) 
+
 [accessibleMenu Advance Live Demo For Angular 19](#accessibleMenu-Advance-Live-Demo-For-Angular-19)  
 
-[accessibleNavigation Basic Live Demo For Angular 19](#accessibleNavigation-Basic-Live-Demo-For-Angular-19) 
+[accessibleMenu Advance Numpad Live Demo For Angular 19](#accessibleMenu-Advance-Live-Demo-For-Angular-19)  
 
 ---
 
@@ -86,8 +88,10 @@ For detailed documentation, refer to [Full Documentation](#full-documentation).
 ## accessibleMenu Advance Live Demo For Angular 19  
 [![View on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/ngx-accessible-ui-accessible-menu-advance?file=src%2FfoodMenu.html)
 
-For detailed documentation, refer to [Full Documentation](#full-documentation).  
+## accessibleMenu Advance Numpad Live Demo For Angular 19  
+[![View on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/ngx-accessible-ui-accessible-menu-advance-numpad?file=src%2FnumpadMenu.html)
 
+For detailed documentation, refer to [Full Documentation](#full-documentation).  
 
 ---
 
