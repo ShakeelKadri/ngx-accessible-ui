@@ -1,10 +1,10 @@
 # **Accessible Navigation & Menu Directives for Angular**  
 
 # Overview  
-Two powerful Angular directives to create or convert any website fully accessible with `keyboard`, touch and mouse with ease:  
+Two powerful Angular directives to create or transform any website into a fully accessible experience with `keyboard`, `touch`, and mouse support with ease:
 
-1. **`accessibleNavigation`** – Create or Converts any webpage accessible with keyboard across sections of a web page.  
-2. **`accessibleMenu`** – Create or Converts any menu a fully accessible keyboard-navigable menu.  
+1. **`accessibleNavigation`** – Enables seamless keyboard navigation across all sections of a webpage.
+2. **`accessibleMenu`** – Transforms any menu into a fully accessible, keyboard-navigable menu.  
 
 Both directives comply with **WCAG 2.1 Level AA** and the **European Accessibility Act 2025**, ensuring a highly inclusive web experience.
 

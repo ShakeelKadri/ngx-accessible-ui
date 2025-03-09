@@ -12,13 +12,7 @@
     "tslib": "^2.3.0"
   },  
   "keywords": [
-    "angular",
-    "menu",
-    "accessibility",
-    "keyboard-navigation",
-    "WCAG",
-    "directive",
-    "European Accessibility Act 2025"
+    "angular", "accessibility", "WCAG", "European Accessibility Act 2025", "ngx-accessible-ui", "Angular accessibility", "accessible menu", "accessible navigation", "keyboard navigation", "keyboard shortcuts", "focus management", "assistive technologies", "ARIA roles", "screen reader support", "UX design", "Angular directive", "navigation menu", "web accessibility", "inclusive design", "a11y", "frontend development", "Angular components", "open-source", "usability", "compliance", "digital accessibility"
   ],
   "repository": {
     "type": "git",
