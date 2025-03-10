@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta name="google-site-verification" content="QByT3pjTbvu8wBaIrdxCWVicX7pQmLH2D0vHGPPAxM4" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="angular, accessibility, WCAG, European Accessibility Act 2025, ngx-accessible-ui, Angular accessibility, accessible menu, accessible navigation, keyboard navigation, keyboard shortcuts, focus management, assistive technologies, ARIA roles, screen reader support, UX design, Angular directive, navigation menu, web accessibility, inclusive design, a11y, frontend development, Angular components, open-source, usability, compliance, digital accessibility">
-    <meta name="description" content="ngx-accessible-ui: Two powerful Angular directives to create or transform any website into a fully accessible experience with `keyboard`, `touch`, and mouse support with ease.">
+    <meta name="keywords"
+        content="angular, accessibility, WCAG, European Accessibility Act 2025, ngx-accessible-ui, Angular accessibility, accessible menu, accessible navigation, keyboard navigation, keyboard shortcuts, focus management, assistive technologies, ARIA roles, screen reader support, UX design, Angular directive, navigation menu, web accessibility, inclusive design, a11y, frontend development, Angular components, open-source, usability, compliance, digital accessibility">
+    <meta name="description"
+        content="ngx-accessible-ui: Two powerful Angular directives to create or transform any website into a fully accessible experience with `keyboard`, `touch`, and mouse support with ease.">
     <meta property="og:title" content="ngx-accessible-ui: Accessible Angular Menu & Navigation">
-    <meta property="og:description" content="Improve web accessibility with ngx-accessible-ui, two powerful Angular directives to create or transform any website into a fully accessible experience with `keyboard`, `touch`, and mouse support with ease.">
+    <meta property="og:description"
+        content="Improve web accessibility with ngx-accessible-ui, two powerful Angular directives to create or transform any website into a fully accessible experience with `keyboard`, `touch`, and mouse support with ease.">
     <meta property="og:url" content="https://shakeelkadri.github.io/ngx-accessible-ui/">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://shakeelkadri.github.io/ngx-accessible-ui/preview.png"> 
+    <meta property="og:image" content="https://shakeelkadri.github.io/ngx-accessible-ui/preview.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ngx-accessible-ui: Accessible Angular Menu & Navigation">
-    <meta name="twitter:description" content="Improve web accessibility with ngx-accessible-ui, two powerful Angular directives to create or transform any website into a fully accessible experience with `keyboard`, `touch`, and mouse support with ease.">    
+    <meta name="twitter:description"
+        content="Improve web accessibility with ngx-accessible-ui, two powerful Angular directives to create or transform any website into a fully accessible experience with `keyboard`, `touch`, and mouse support with ease.">
     <meta name="twitter:image" content="https://shakeelkadri.github.io/ngx-accessible-ui/preview.png">
     <title>ngx-accessible-ui – Accessible Angular Menus & Navigation</title>
     <link rel="stylesheet" href="tailwind.css">
@@ -23,6 +28,7 @@
         .code-container {
             position: relative;
         }
+
         .copy-btn {
             position: absolute;
             top: 0.5rem;
@@ -30,11 +36,13 @@
             opacity: 0;
             transition: opacity 0.2s;
         }
+
         .code-container:hover .copy-btn {
             opacity: 1;
         }
     </style>
 </head>
+
 <body class="bg-gray-50">
     <!-- Navigation -->
     <nav class="bg-gray-900 text-white shadow-lg fixed w-full top-0 z-50">
@@ -56,12 +64,18 @@
     <header class="pt-24 pb-12 bg-gradient-to-r from-gray-900 to-blue-900 text-white">
         <div class="container mx-auto px-6 text-center">
             <h1 class="text-4xl md:text-6xl font-bold mb-6">Accessible Angular Menus & Navigation</h1>
-            <p class="text-xl mb-8 opacity-90">Improve web accessibility with ngx-accessible-ui, two powerful Angular directives to create or transform any website into a fully accessible experience with `keyboard`, `touch`, and mouse support with ease.</p>
+            <p class="text-xl mb-8 opacity-90">Improve web accessibility with ngx-accessible-ui, two powerful Angular
+                directives to create or transform any website into a fully accessible experience with `keyboard`,
+                `touch`, and mouse support with ease.</p>
             <div class="space-x-4">
-                <a href="#installation" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-medium transition">Get Started</a>
-                <a href="#demos" class="border border-white hover:border-blue-400 px-6 py-3 rounded-lg font-medium transition">View Demos</a>
+                <a href="#installation"
+                    class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-medium transition">Get Started</a>
+                <a href="#demos"
+                    class="border border-white hover:border-blue-400 px-6 py-3 rounded-lg font-medium transition">View
+                    Demos</a>
             </div>
         </div>
+        <div id="gif-container"></div>        
     </header>
 
     <!-- Main Content -->
@@ -102,7 +116,7 @@ export class AppModule {}
         <!-- Directives -->
         <section id="directives" class="mb-16">
             <h2 class="text-3xl font-bold mb-8">Directives</h2>
-            
+
             <!-- accessibleNavigation -->
             <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
                 <h3 class="text-2xl font-semibold mb-4">accessibleNavigation</h3>
@@ -122,7 +136,8 @@ export class AppModule {}
                         </code>
                     </pre>
                 </div>
-                <a href="https://stackblitz.com/edit/ngx-accessible-ui-accessible-navigation-basic" class="text-blue-600 hover:text-blue-700">View Demo →</a>
+                <a href="https://stackblitz.com/edit/ngx-accessible-ui-accessible-navigation-basic"
+                    class="text-blue-600 hover:text-blue-700">View Demo →</a>
             </div>
 
             <!-- accessibleMenu -->
@@ -153,76 +168,74 @@ export class AppModule {}
                         </code>
                     </pre>
                 </div>
-                <a href="https://stackblitz.com/edit/ngx-accessible-ui-accessible-menu-basic" class="text-blue-600 hover:text-blue-700">View Demo →</a>
+                <a href="https://stackblitz.com/edit/ngx-accessible-ui-accessible-menu-basic"
+                    class="text-blue-600 hover:text-blue-700">View Demo →</a>
             </div>
         </section>
 
-    <!-- Demos -->
-    <section id="demos" class="mb-16">
-        <h2 class="text-3xl font-bold mb-8">Live Demos</h2>
+        <!-- Demos -->
+        <section id="demos" class="mb-16">
+            <h2 class="text-3xl font-bold mb-8">Live Demos</h2>
 
-        <!-- accessibleNavigation Demos -->
-        <div class="mb-12">
-            <h3 class="text-2xl font-semibold mb-6 text-gray-800">accessibleNavigation Demos</h3>
-            <div class="grid md:grid-cols-1 gap-6">
-                <div class="bg-white p-6 rounded-xl shadow-lg">
-                    <h4 class="text-lg font-medium mb-4">Basic Navigation Demo</h4>
-                    <a href="https://stackblitz.com/edit/ngx-accessible-ui-accessible-navigation-basic?file=src%2Fmain.ts" 
-                       class="block bg-gray-100 hover:bg-gray-200 p-4 rounded-lg transition">
-                        <img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" 
-                             alt="StackBlitz" 
-                             class="h-8 mx-auto">
-                    </a>
+            <!-- accessibleNavigation Demos -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold mb-6 text-gray-800">accessibleNavigation Demos</h3>
+                <div class="grid md:grid-cols-1 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <h4 class="text-lg font-medium mb-4">Basic Navigation Demo</h4>
+                        <a href="https://stackblitz.com/edit/ngx-accessible-ui-accessible-navigation-basic?file=src%2Fmain.ts"
+                            class="block bg-gray-100 hover:bg-gray-200 p-4 rounded-lg transition">
+                            <img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" alt="StackBlitz"
+                                class="h-8 mx-auto">
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- accessibleMenu Demos -->
-        <div class="mb-12">
-            <h3 class="text-2xl font-semibold mb-6 text-gray-800">accessibleMenu Demos</h3>
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Basic Demo -->
-                <div class="bg-white p-6 rounded-xl shadow-lg">
-                    <h4 class="text-lg font-medium mb-4">Basic Menu Demo</h4>
-                    <a href="https://stackblitz.com/edit/ngx-accessible-ui-accessible-menu-basic?file=src%2Fmain.ts" 
-                       class="block bg-gray-100 hover:bg-gray-200 p-4 rounded-lg transition">
-                        <img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" 
-                             alt="StackBlitz" 
-                             class="h-8 mx-auto">
-                    </a>
-                </div>
+            <!-- accessibleMenu Demos -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold mb-6 text-gray-800">accessibleMenu Demos</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Basic Demo -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <h4 class="text-lg font-medium mb-4">Basic Menu Demo</h4>
+                        <a href="https://stackblitz.com/edit/ngx-accessible-ui-accessible-menu-basic?file=src%2Fmain.ts"
+                            class="block bg-gray-100 hover:bg-gray-200 p-4 rounded-lg transition">
+                            <img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" alt="StackBlitz"
+                                class="h-8 mx-auto">
+                        </a>
+                    </div>
 
-                <!-- Advanced Demo -->
-                <div class="bg-white p-6 rounded-xl shadow-lg">
-                    <h4 class="text-lg font-medium mb-4">Advanced Menu Demo</h4>
-                    <a href="https://stackblitz.com/edit/ngx-accessible-ui-accessible-menu-advance?file=src%2FfoodMenu.html" 
-                       class="block bg-gray-100 hover:bg-gray-200 p-4 rounded-lg transition">
-                        <img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" 
-                             alt="StackBlitz" 
-                             class="h-8 mx-auto">
-                    </a>
-                </div>
+                    <!-- Advanced Demo -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <h4 class="text-lg font-medium mb-4">Advanced Menu Demo</h4>
+                        <a href="https://stackblitz.com/edit/ngx-accessible-ui-accessible-menu-advance?file=src%2FfoodMenu.html"
+                            class="block bg-gray-100 hover:bg-gray-200 p-4 rounded-lg transition">
+                            <img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" alt="StackBlitz"
+                                class="h-8 mx-auto">
+                        </a>
+                    </div>
 
-                <!-- Numpad Demo -->
-                <div class="bg-white p-6 rounded-xl shadow-lg">
-                    <h4 class="text-lg font-medium mb-4">Advanced Numpad Menu Demo</h4>
-                    <a href="https://stackblitz.com/edit/ngx-accessible-ui-accessible-menu-advance-numpad?file=src%2FnumpadMenu.html" 
-                       class="block bg-gray-100 hover:bg-gray-200 p-4 rounded-lg transition">
-                        <img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" 
-                             alt="StackBlitz" 
-                             class="h-8 mx-auto">
-                    </a>
+                    <!-- Numpad Demo -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <h4 class="text-lg font-medium mb-4">Advanced Numpad Menu Demo</h4>
+                        <a href="https://stackblitz.com/edit/ngx-accessible-ui-accessible-menu-advance-numpad?file=src%2FnumpadMenu.html"
+                            class="block bg-gray-100 hover:bg-gray-200 p-4 rounded-lg transition">
+                            <img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" alt="StackBlitz"
+                                class="h-8 mx-auto">
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
         <!-- Documentation -->
         <section id="docs" class="mb-16">
             <h2 class="text-3xl font-bold mb-8">Documentation</h2>
             <div class="bg-white rounded-xl shadow-lg p-6">
                 <p class="mb-4">Full documentation available on:</p>
-                <a href="https://npmjs.com/package/ngx-accessible-ui" class="text-blue-600 hover:text-blue-700">NPM Package Documentation →</a>
+                <a href="https://npmjs.com/package/ngx-accessible-ui" class="text-blue-600 hover:text-blue-700">NPM
+                    Package Documentation →</a>
             </div>
         </section>
     </main>
@@ -231,7 +244,8 @@ export class AppModule {}
     <footer class="bg-gray-900 text-white py-8">
         <div class="container mx-auto px-6">
             <div class="text-center">
-                <p class="mb-4">Maintained by <a href="https://github.com/shakeelkadir" class="text-blue-400 hover:text-blue-300">Shakeel Kadri</a></p>
+                <p class="mb-4">Maintained by <a href="https://github.com/shakeelkadir"
+                        class="text-blue-400 hover:text-blue-300">Shakeel Kadri</a></p>
                 <p class="text-gray-400">Licensed under MIT License</p>
             </div>
         </div>
@@ -244,7 +258,7 @@ export class AppModule {}
                 button.addEventListener('click', (e) => {
                     const code = e.target.parentElement.querySelector('code').innerText;
                     navigator.clipboard.writeText(code.trim());
-                    
+
                     // Visual feedback
                     const originalText = button.innerText;
                     button.innerText = 'Copied!';
@@ -255,7 +269,15 @@ export class AppModule {}
                     }, 2000);
                 });
             });
-            
+
+            window.onload = function () {
+                const container = document.getElementById("gif-container");
+                const img = new Image();
+                img.src = "accessibleMenuAnimation.gif";
+                img.alt = "Animated GIF";
+                container.appendChild(img);
+            };
+
             // Smooth scroll for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
@@ -265,10 +287,11 @@ export class AppModule {}
                     });
                 });
             });
-            
+
             hljs.highlightAll();
         });
     </script>
 
 </body>
+
 </html>
