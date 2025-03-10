@@ -8,6 +8,8 @@ Two powerful Angular directives to create or transform any website into a fully 
 
 Both directives comply with **WCAG 2.1 Level AA** and the **European Accessibility Act 2025**, ensuring a highly inclusive web experience.
 
+![Accessible Menu Animation](https://raw.githubusercontent.com/shakeelkadri/ngx-accessible-ui/main/accessibleMenuAnimation.gif)
+
 # Installation  
 To install the directives in your Angular project, use:  
 
