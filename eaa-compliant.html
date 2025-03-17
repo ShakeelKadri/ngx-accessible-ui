@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Make Your Website Compliant with the European Accessibility Act 2025</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --text-color: #2c3e50;
+            --background-color: #f9f9f9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: var(--primary-color);
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin: 2rem 0 1rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        li:before {
+            content: "✔";
+            color: var(--secondary-color);
+            position: absolute;
+            left: -1.5rem;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        .cta {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--primary-color);
+            color: white;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="https://shakeelkadri.github.io/ngx-accessible-ui/">Home</a>
+            <a href="https://github.com/ShakeelKadri/ngx-accessible-ui">GitHub Repo</a>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container">
+            <h1>Web Accessibility Compliance with the European Accessibility Act 2025</h1>
+            <p>A Practical Guide Using ngx-accessible-ui</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <h2>Key Requirements of the European Accessibility Act</h2>
+            <ul>
+                <li>Perceivable content and user interface</li>
+                <li>Operable navigation and functionality</li>
+                <li>Understandable information and interface</li>
+                <li>Robust compatibility with assistive technologies</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Implementation Guide with ngx-accessible-ui</h2>
+            <h3>1. Accessible Components</h3>
+            <p>Use our pre-built accessible components:</p>
+            <ul>
+                <li><code>accessible-modal</code> - WCAG compliant dialogs</li>
+                <li><code>accessible-tooltip</code> - ARIA-enabled tooltips</li>
+                <li><code>accessible-dropdown</code> - Keyboard-navigable menus</li>
+            </ul>
+
+            <h3>2. Keyboard Navigation</h3>
+            <p>All components support:</p>
+            <ul>
+                <li>Tab navigation</li>
+                <li>Arrow key controls</li>
+                <li>Escape key closing</li>
+            </ul>
+
+            <h3>3. ARIA Implementation</h3>
+            <p>Automatic ARIA attributes for:</p>
+            <ul>
+                <li>Screen reader support</li>
+                <li>Role definitions</li>
+                <li>Live region updates</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Essential Compliance Steps</h2>
+            <ul>
+                <li>Use semantic HTML elements</li>
+                <li>Ensure proper contrast ratios (4.5:1 minimum)</li>
+                <li>Provide text alternatives for non-text content</li>
+                <li>Implement keyboard navigation throughout</li>
+                <li>Use ARIA labels where needed</li>
+                <li>Test with screen readers (JAWS, NVDA)</li>
+            </ul>
+        </div>
+
+        <div class="cta">
+            <a href="https://github.com/ShakeelKadri/ngx-accessible-ui" class="button">
+                Get Started with ngx-accessible-ui
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2023 ngx-accessible-ui. Conforms to WCAG 2.1 AA standards.</p>
+            <p>Need help? <a href="https://github.com/ShakeelKadri/ngx-accessible-ui/issues" style="color: #fff;">Open an issue</a></p>
+        </div>
+    </footer>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Make Angular Apps EAA 2025 Compliant with ngx-accessible-ui</title>
+    <meta name="description" content="Step-by-step guide to implementing European Accessibility Act 2025 requirements in Angular applications using ngx-accessible-ui components and best practices">
+    <style>
+        :root {
+            --primary: #2F5496;  /* WCAG compliant blue */
+            --secondary: #4C9AFF;
+            --success: #57D9A3;
+            --text: #2B2B2B;
+            --background: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--background);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        nav {
+            background: var(--primary);
+            padding: 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 1.5rem;
+            font-weight: 500;
+        }
+
+        header {
+            padding: 4rem 0;
+            background: linear-gradient(45deg, var(--primary), #1A365F);
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            color: var(--primary);
+            margin: 2.5rem 0 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary);
+        }
+
+        .step-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--secondary);
+        }
+
+        code {
+            display: block;
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+
+        .cli-command::before {
+            content: "$ ";
+            color: var(--success);
+        }
+
+        .package-list {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .package-card {
+            padding: 1.5rem;
+            border: 1px solid #eee;
+            border-radius: 6px;
+        }
+
+        .checklist {
+            columns: 2;
+            margin: 1.5rem 0;
+        }
+
+        .checklist li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .checklist li::before {
+            content: "✓";
+            color: var(--success);
+            position: absolute;
+            left: 0;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 3rem 0;
+            background: var(--primary);
+            color: white;
+            margin-top: 2rem;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: var(--success);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            gap: 0.5rem;
+            transition: transform 0.2s;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .checklist {
+                columns: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/ngx-accessible-ui/">Home</a>
+            <a href="https://github.com/ShakeelKadri/ngx-accessible-ui">GitHub</a>
+            <a href="https://www.npmjs.com/package/ngx-accessible-ui">NPM Package</a>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container">
+            <h1>Transform Angular Applications to EAA 2025 Compliance</h1>
+            <p>A Step-by-Step Guide Using ngx-accessible-ui</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="step-card">
+            <h2>1. Installation & Setup</h2>
+            <p>Add the library to your Angular project:</p>
+            <code class="cli-command">npm install ngx-accessible-ui</code>
+            <p>Import required modules in your app.module.ts:</p>
+            <code>
+import { AccessibleModalModule, AccessibleFormsModule } from 'ngx-accessible-ui';
+
+@NgModule({
+  imports: [
+    AccessibleModalModule,
+    AccessibleFormsModule,
+    // ... other modules
+  ]
+})
+            </code>
+        </div>
+
+        <div class="step-card">
+            <h2>2. Implement Accessible Components</h2>
+            <div class="package-list">
+                <div class="package-card">
+                    <h3>Accessible Modals</h3>
+                    <code>&lt;accessible-modal&gt;
+  &lt;!-- Your modal content --&gt;
+&lt;/accessible-modal&gt;</code>
+                    <p>Automatic focus trapping and ARIA roles</p>
+                </div>
+                
+                <div class="package-card">
+                    <h3>Form Components</h3>
+                    <code>&lt;accessible-input 
+  label="Full name"
+  required
+&gt;&lt;/accessible-input&gt;</code>
+                    <p>Built-in error handling and labels</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <h2>3. Keyboard Navigation Setup</h2>
+            <ul class="checklist">
+                <li>Tab navigation already handled in components</li>
+                <li>Add skip navigation link in app.component.html:</li>
+            </ul>
+            <code>&lt;a href="#main-content" class="skip-link"&gt;
+  Skip to main content
+&lt;/a&gt;</code>
+        </div>
+
+        <div class="step-card">
+            <h2>4. Accessibility Testing</h2>
+            <ul class="checklist">
+                <li>Run automated tests with library utilities:</li>
+            </ul>
+            <code class="cli-command">ng test --include-accessibility</code>
+            <ul class="checklist">
+                <li>Check contrast ratios using built-in validators</li>
+                <li>Validate with screen readers (NVDA/JAWS)</li>
+            </ul>
+        </div>
+
+        <div class="cta-section">
+            <h2>Start Your Compliance Journey Today</h2>
+            <a href="https://github.com/ShakeelKadri/ngx-accessible-ui" class="button">
+                Get Started with ngx-accessible-ui
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <h3>EAA 2025 Compliance Checklist</h3>
+            <ul class="checklist">
+                <li>All interactive elements keyboard-navigable</li>
+                <li>ARIA roles properly implemented</li>
+                <li>Contrast ratio ≥ 4.5:1 for normal text</li>
+                <li>Form fields with accessible labels</li>
+                <li>Alternative text for images</li>
+                <li>No reliance on color alone</li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

@@ -357,7 +357,7 @@ export class AccessibleNavigationDirective implements AfterViewInit, OnDestroy {
         AccessibleNavigationDirective.navigationMap.push({
           page: this.navMap.page,
           section: this.navMap.section,
-          element: focusItem || this.el.nativeElement,
+          element: focusItem ? focusItem : this.el.nativeElement,
           nativeElement: this.el.nativeElement,
         });
         AccessibleNavigationDirective.navigationMap.sort((a, b) =>
@@ -604,13 +604,14 @@ export class AccessibleNavigationDirective implements AfterViewInit, OnDestroy {
    * Focus on a specific item in the menu.
    */
   private focusItem(index: number, element: HTMLElement | null = null, section: number | null = null) {
-    let navigationItem = element || this.navigationItems[index];
+    let navigationItem = element ? element : this.navigationItems[index];
+    let lSection = section ? section : this.navMap.section;
     if (navigationItem.tabIndex === -1 || !navigationItem.matches('a[href]')) {
       this.renderer.setAttribute(navigationItem, 'tabindex', '0');
     }
     navigationItem?.focus();
-    if (this.navMap.page !== null && this.navMap.section !== null) {
-      AccessibleNavigationDirective.lastNavigatedSectionInEveryPage[this.navMap.page] = { lastSection: section || this.navMap.section, lastElement: navigationItem };
+    if (this.navMap.page !== null && this.navMap.section !== null && lSection !== null) {
+      AccessibleNavigationDirective.lastNavigatedSectionInEveryPage[this.navMap.page] = { lastSection: lSection, lastElement: navigationItem };
     }
     return navigationItem
   }
