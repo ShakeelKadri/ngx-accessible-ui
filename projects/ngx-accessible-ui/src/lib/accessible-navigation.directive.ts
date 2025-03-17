@@ -8,12 +8,11 @@ import { Directive, ElementRef, Renderer2, Input, HostListener, AfterViewInit, O
  * - **Advanced Keyboard Navigation & Focus Management**:
  *   - Default navigation: Tab, Shift+Tab for sections like header, footer, main, aside, etc.; Arrow keys for elements in sections.
  *   - Supports all directional navigation, irrespective of grid, table, float, or any other structure.
- *   - Automatically manages focus between navigable pages (i.e., components or child components) when they open or close.
+ *   - Automatically manages focus between navigable pages (i.e., components or child components) when they open or close and remembers the last navigated section on every page and sets focus to the last active element in that section
  *
  * - **Dynamic Navigation Map**:
  *   - Maintains a static navigation map that tracks page and section information.
  *   - Automatically updates the navigation map as items are added, removed, or modified.
- *   - Remembers the last navigated section on every page and sets focus to the last active element in that section.
  *
  * - **Observer Integration for Responsive Updates**:
  *   - Utilizes **IntersectionObserver** to detect when a page becomes visible and adjust focus accordingly.
@@ -321,7 +320,7 @@ export class AccessibleNavigationDirective implements AfterViewInit, OnDestroy {
         if (tempPageNavigationMap.length > 0 && this.isElementOnTop(tempPageNavigationMap[0].element)) {
           //find last section active in page and set focus to last element of that section
           for (let i = tempPageNavigationMap.length - 1; i >= 0; i--) {
-            if (tempPageNavigationMap[i].section === lstNavSectInEvPage[tempPageNavigationMap[i].page].lastSection) {
+            if (lstNavSectInEvPage[tempPageNavigationMap[i].page].lastSection && tempPageNavigationMap[i].section === lstNavSectInEvPage[tempPageNavigationMap[i].page].lastSection) {
               if (this.isElementVisible(lstNavSectInEvPage[tempPageNavigationMap[i].page].lastElement)) {
                 this.focusItem(0, lstNavSectInEvPage[tempPageNavigationMap[i].page].lastElement);
               }
@@ -351,7 +350,7 @@ export class AccessibleNavigationDirective implements AfterViewInit, OnDestroy {
         // if navigationItem is in document and visible then set focus element to navigationItem
         if (focusItem) {
           existingItem.element = focusItem;
-        } 
+        }
         else existingItem.element = this.el.nativeElement;
         existingItem.nativeElement = this.el.nativeElement;
       } else {
@@ -478,7 +477,8 @@ export class AccessibleNavigationDirective implements AfterViewInit, OnDestroy {
     }
 
     const targetElement = currentPageNavigationMap[targetIndex].element;
-    this.focusItem(0, targetElement);
+    let section = currentPageNavigationMap[targetIndex].section;
+    this.focusItem(0, targetElement, section);
   }
 
   /**
@@ -603,14 +603,14 @@ export class AccessibleNavigationDirective implements AfterViewInit, OnDestroy {
   /**
    * Focus on a specific item in the menu.
    */
-  private focusItem(index: number, element: HTMLElement | null = null) {
+  private focusItem(index: number, element: HTMLElement | null = null, section: number | null = null) {
     let navigationItem = element || this.navigationItems[index];
     if (navigationItem.tabIndex === -1 || !navigationItem.matches('a[href]')) {
       this.renderer.setAttribute(navigationItem, 'tabindex', '0');
     }
     navigationItem?.focus();
     if (this.navMap.page !== null && this.navMap.section !== null) {
-      AccessibleNavigationDirective.lastNavigatedSectionInEveryPage[this.navMap.page] = { lastSection: this.navMap.section, lastElement: navigationItem };
+      AccessibleNavigationDirective.lastNavigatedSectionInEveryPage[this.navMap.page] = { lastSection: section || this.navMap.section, lastElement: navigationItem };
     }
     return navigationItem
   }
